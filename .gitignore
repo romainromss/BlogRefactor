@@ -1,0 +1,4 @@
+.idea
+vendor
+.DS_STORE
+configs/dic/database.php

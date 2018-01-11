@@ -1,0 +1,23 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    <title>Blog</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% for post in posts %}
+        <div class="card" style="width: 100%;">
+            <div class="card-block">
+                <h2 class="card-title text-center">{{ post.title }}</h2>
+                <p id="date" class="card-text text-center text-justify">Date de dernière modification {{ post.creation_at|date('d/m/Y') }}</p>
+                <div class="container col-lg-8"><img class="card-img text-lg-left" src="{{ post.img }}"/></div>
+                <p class="card-text">{{ post.chapo}}</p>
+                <a href="/posts/{{ post.id }}" class="btn btn-primary">Lire l'article</a>
+             </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
