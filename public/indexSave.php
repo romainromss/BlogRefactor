@@ -51,7 +51,7 @@ $allCommentAction($request, $response, $container);
 try {
     $db = $container->get(IDatabase::class);
     $request = $db->request('SELECT * FROM users');
-    var_dump($request->fetchAll());
+    //var_dump($request->fetchAll());
 } catch (\DI\DependencyException $e) {
 } catch (\DI\NotFoundException $e) {
 }
