@@ -9,17 +9,21 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Render\IRender;
 
+
 class IndexAction
 {
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param Container $container
+     * @return ResponseInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        try {
-            $view = $container->get(IRender::class)->render('Home/home', []);
-            $response->getBody()->write($view);
-        } catch (DependencyException $e) {
-        } catch (NotFoundException $e) {
-        }
-
+        $view = $container->get(IRender::class)->render('Home/home');
+        $response->getBody()->write($view);
         return $response;
     }
 }

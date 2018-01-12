@@ -17,11 +17,10 @@ class LoginAction
      * @throws \DI\DependencyException
      * @throws \DI\NotFoundException
      */
-    public  function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
+
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        //AJOUTER PARTIE SECURITE LOGIN
-        //LOGOUT
-        $view = $container->get(IRender::class)->render('Login/login', []);
+        $view = $container->get(IRender::class)->render('Login/login');
         $response->getBody()->write($view);
 
         return $response;

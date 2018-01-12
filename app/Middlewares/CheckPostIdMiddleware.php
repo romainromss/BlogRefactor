@@ -10,7 +10,8 @@ class CheckPostIdMiddleware
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container, $next)
     {
-        $response = $next($request, $response);
-        return $response;
+        echo 'test';
+        return $next($request, $response);
+
     }
 }

@@ -24,6 +24,8 @@ class TwigRender implements IRender
         $this->loader->addPath($path, $namespace);
     }
 
+
+
     /**
      * @param string $view
      * @param array $params
@@ -34,8 +36,17 @@ class TwigRender implements IRender
      */
     public function render(string $view, array $params = null)
     {
+        if (isset($_SESSION['flash'])) {
+            $params['__flash'] = $_SESSION['flash'];
+            unset($_SESSION['flash']);
+        }
+
+        $params['__session'] = $_SESSION;
+        $params['__page'] = $view.".html.twig";
+
      return $this->twig->render($view. '.html.twig', $params);
     }
+
 
     /**
      * @param string $key
@@ -43,6 +54,7 @@ class TwigRender implements IRender
      */
     public function addGlobal(string $key, $value): void
     {
-       $this->twig->addGlobal($key, $value);
+        $this->twig->addGlobal($key, $value);
     }
+
 }
