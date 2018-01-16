@@ -2,4 +2,4 @@
 vendor
 .DS_STORE
 configs/dic/database.php
-public/assets
+public/assets/
