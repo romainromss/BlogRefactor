@@ -8,7 +8,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class CheckPostIdMiddleware
 {
-
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container, $next)
     {
         echo 'test';
