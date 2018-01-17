@@ -7,7 +7,7 @@ namespace Romss\Database;
  *
  * @package Database
  */
-interface IDatabase
+interface DatabaseInterface
 {
     /**
      * représente la requête à faire avec les données
@@ -15,9 +15,9 @@ interface IDatabase
      *
      * @param string $statement La requête à faire
      * @param array $params Les données dynamique
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function request(string $statement, array $params = []): IStatement;
+    public function request(string $statement, array $params = []): StatementInterface;
 
     /**
      * Retourne le dernier id inséré

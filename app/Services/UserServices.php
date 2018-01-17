@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
-use App\Repositories\IUserRepositories;
-use Romss\Database\IStatement;
+use App\Repositories\UserRepositoriesInterface;
+use Romss\Database\StatementInterface;
 
 class UserServices
 {
     private $userRepositories;
 
-    public function __construct(IUserRepositories $userRepositories)
+    public function __construct(UserRepositoriesInterface $userRepositories)
     {
         $this->userRepositories = $userRepositories;
     }
@@ -32,7 +32,7 @@ class UserServices
         return $user;
     }
 
-    public function updateUser($user): IStatement
+    public function updateUser($user): StatementInterface
     {
         $user = $this->userRepositories->updateUser($user);
         return $user;

@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use Romss\Database\IStatement;
+use Romss\Database\StatementInterface;
 
-interface IPostRepositories
+interface PostRepositoriesInterface
 {
     /**
      * @return array
@@ -25,12 +25,7 @@ interface IPostRepositories
 
     /**
      * @param $post
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updatePost($post): IStatement;
-
-    /**
-     * @return array
-     */
-    public function countPost(): array;
+    public function updatePost($post): StatementInterface;
 }

@@ -2,9 +2,9 @@
 namespace App\Repositories;
 
 
-use Romss\Database\IStatement;
+use Romss\Database\StatementInterface;
 
-interface IUserRepositories
+interface UserRepositoriesInterface
 {
     /**
 
@@ -27,10 +27,9 @@ interface IUserRepositories
 
     /**
      * @param $user
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updateUser($user): IStatement;
+    public function updateUser($user): StatementInterface;
 
     public function allusers();
-
 }

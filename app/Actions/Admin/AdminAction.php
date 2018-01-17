@@ -2,13 +2,12 @@
 
 namespace App\Actions\Admin;
 
-use App\Services\UserServices;
 use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 
 class AdminAction extends ActionsParams
 {
@@ -31,7 +30,7 @@ class AdminAction extends ActionsParams
             ]);
 
         } elseif ($request->getMethod() === 'GET') {
-            $view = $container->get(IRender::class)->render('Admin/admin');
+            $view = $container->get(RenderInterface::class)->render('Admin/admin');
             $response->getBody()->write($view);
         }
         return $response;

@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
@@ -25,7 +25,7 @@ class ContactAction extends ActionsParams
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         if ($request->getMethod() === 'GET') {
-            $view = $container->get(IRender::class)->render('Contact/contact');
+            $view = $container->get(RenderInterface::class)->render('Contact/contact');
             $response->getBody()->write($view);
 
             return $response;
@@ -81,5 +81,4 @@ class ContactAction extends ActionsParams
             'Location' => '/'
         ]);
     }
-
 }

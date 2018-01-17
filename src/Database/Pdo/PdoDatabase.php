@@ -4,8 +4,8 @@ namespace Romss\Database\Pdo;
 
 use DateTime;
 use PDO;
-use Romss\Database\IDatabase;
-use Romss\Database\IStatement;
+use Romss\Database\DatabaseInterface;
+use Romss\Database\StatementInterface;
 
 /**
  * Class PdoDatabase
@@ -13,7 +13,7 @@ use Romss\Database\IStatement;
  *
  * @package Quenti\Database
  */
-class PdoDatabase extends PDO implements IDatabase
+class PdoDatabase extends PDO implements DatabaseInterface
 {
     const TYPE_FIELD = [
         'integer' => parent::PARAM_INT,
@@ -42,9 +42,9 @@ class PdoDatabase extends PDO implements IDatabase
      *
      * @param string $statement La requête à faire
      * @param array $params Les données dynamique
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function request(string $statement, array $params = []): IStatement
+    public function request(string $statement, array $params = []): StatementInterface
     {
         $statement = new PdoStatement($this->prepare($statement));
 

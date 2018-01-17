@@ -3,21 +3,8 @@
 namespace Romss;
 
 
-
-use App\Services\UserServices;
-
 class ActionsParams
 {
-    /**
-     * @var UserServices
-     */
-    private $userServices;
-
-    public function __construct(UserServices $userServices)
-    {
-        $this->userServices = $userServices;
-    }
-
     public function setFlash($type, $content)
     {
         $_SESSION['flash'] = compact('type', 'content');

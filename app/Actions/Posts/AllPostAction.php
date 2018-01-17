@@ -5,7 +5,7 @@ use App\Services\PostServices;
 use DI\Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 
 class AllPostAction
 {
@@ -30,7 +30,7 @@ class AllPostAction
         //AJOUTER MESSAGE FLASH VARIABLE PAGE POUR TWIG
 
         $posts = $this->postServices->allpost();
-        $view = $container->get(IRender::class)->render('Article/post', ['posts' => $posts]);
+        $view = $container->get(RenderInterface::class)->render('Article/post', ['posts' => $posts]);
         $response->getBody()->write($view);
         return $response;
     }

@@ -1,17 +1,17 @@
 <?php
 namespace App\Repositories;
 
-use Romss\Database\IDatabase;
-use Romss\Database\IStatement;
+use Romss\Database\DatabaseInterface;
+use Romss\Database\StatementInterface;
 
-class PdoUserRepository implements IUserRepositories
+class PdoUserRepository implements UserRepositoriesInterface
 {
     /**
-     * @var IDatabase
+     * @var DatabaseInterface
      */
     private $database;
 
-    public function __construct(IDatabase $database)
+    public function __construct(DatabaseInterface $database)
     {
         $this->database = $database;
     }
@@ -66,9 +66,9 @@ class PdoUserRepository implements IUserRepositories
 
     /**
      * @param $user
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updateUser($user): IStatement
+    public function updateUser($user): StatementInterface
     {
         return $this->database->request(
             'UPDATE users

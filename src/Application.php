@@ -113,5 +113,4 @@ class Application
             $this->middlewares[$name] = $route['middlewares'];
         }
     }
-
 }

@@ -9,11 +9,10 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
-
 
 
 class RegisterAction extends ActionsParams
@@ -40,7 +39,7 @@ class RegisterAction extends ActionsParams
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         if ($request->getMethod() === 'GET') {
-            $view = $container->get(IRender::class)->render('Register/register');
+            $view = $container->get(RenderInterface::class)->render('Register/register');
             $response->getBody()->write($view);
             return $response;
         }
@@ -87,10 +86,10 @@ class RegisterAction extends ActionsParams
             'token' => $tokenRegister
         ];
 
-        $renderHtml = $container->get(IRender::class)->render('Mails/verify', [
+        $renderHtml = $container->get(RenderInterface::class)->render('Mails/verify', [
             'user' => $user
         ]);
-        $renderText = $container->get(IRender::class)->render('Mails/verify', [
+        $renderText = $container->get(RenderInterface::class)->render('Mails/verify', [
             'user' => $user
         ], 'text');
 

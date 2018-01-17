@@ -2,18 +2,18 @@
 
 namespace App\Repositories;
 
-use Romss\Database\IDatabase;
-use Romss\Database\IStatement;
+use Romss\Database\DatabaseInterface;
+use Romss\Database\StatementInterface;
 
-class PdoCommentRepository implements ICommentRepositories
+class PdoCommentRepository implements CommentRepositoriesInterface
 {
 
     /**
-     * @var IDatabase
+     * @var DatabaseInterface
      */
     private $database;
 
-    public function __construct(IDatabase $database)
+    public function __construct(DatabaseInterface $database)
     {
         $this->database = $database;
     }
@@ -59,9 +59,9 @@ class PdoCommentRepository implements ICommentRepositories
 
     /**
      * @param $comment
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updateComment($comment): IStatement
+    public function updateComment($comment): StatementInterface
     {
         return $this->database->request('UPDATE comments
         SET post_id = :post_id,

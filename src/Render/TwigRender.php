@@ -2,7 +2,7 @@
 
 namespace Romss\Render;
 
-class TwigRender implements IRender
+class TwigRender implements RenderInterface
 {
 
     private  $twig;
@@ -57,5 +57,4 @@ class TwigRender implements IRender
     {
         $this->twig->addGlobal($key, $value);
     }
-
 }

@@ -3,7 +3,7 @@
 namespace Romss\Render;
 
 
-interface IRender
+interface RenderInterface
 {
     /**
      * @param string $namespace
@@ -24,5 +24,4 @@ interface IRender
      * @param $value
      */
     public function  addGlobal(string  $key, $value): void;
-
 }

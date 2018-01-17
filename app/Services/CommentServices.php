@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Repositories\ICommentRepositories;
+use App\Repositories\CommentRepositoriesInterface;
 
 class CommentServices
 {
     private $commentRepositories;
 
-    public function __construct(ICommentRepositories $commentRepositories)
+    public function __construct(CommentRepositoriesInterface $commentRepositories)
     {
         $this->commentRepositories = $commentRepositories;
     }

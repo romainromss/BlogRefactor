@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 
-use Romss\Database\IStatement;
+use Romss\Database\StatementInterface;
 
-interface ICommentRepositories
+interface CommentRepositoriesInterface
 {
     /**
      * @return array
@@ -28,10 +28,7 @@ interface ICommentRepositories
 
     /**
      * @param $comment
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updateComment($comment): IStatement;
-
+    public function updateComment($comment): StatementInterface;
 }
-
-

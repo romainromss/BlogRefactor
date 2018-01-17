@@ -3,9 +3,9 @@
 namespace Romss\Database\Pdo;
 
 use PDOStatement as PDOState;
-use Romss\Database\IStatement;
+use Romss\Database\StatementInterface;
 
-class PdoStatement implements IStatement
+class PdoStatement implements StatementInterface
 {
     /**
      * @var PDOState $statement

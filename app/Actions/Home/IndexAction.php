@@ -7,7 +7,7 @@ use DI\DependencyException;
 use DI\NotFoundException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 
 
 class IndexAction
@@ -22,7 +22,7 @@ class IndexAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        $view = $container->get(IRender::class)->render('Home/home');
+        $view = $container->get(RenderInterface::class)->render('Home/home');
         $response->getBody()->write($view);
         return $response;
     }

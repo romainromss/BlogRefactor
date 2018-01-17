@@ -8,7 +8,7 @@ use App\Services\PostServices;
 use DI\Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\Render\IRender;
+use Romss\Render\RenderInterface;
 
 
 class PostAction
@@ -38,10 +38,9 @@ class PostAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        //AJOUTER MESSAGE FLASH VARIABLE PAGE POUR TWIG
         $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0), true);
         $post = $this->postServices->getPostWithId($request->getAttribute('post', 0));
-        $view = $container->get(IRender::class)->render('Article/postdetails', ['post' => $post, 'comments' => $comments]);
+        $view = $container->get(RenderInterface::class)->render('Article/postdetails', ['post' => $post, 'comments' => $comments]);
         $response->getBody()->write($view);
         return $response;
     }

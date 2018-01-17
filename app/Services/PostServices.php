@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use App\Repositories\IPostRepositories;
+use App\Repositories\PostRepositoriesInterface;
 
 class PostServices
 {
     /**
-     * @var IPostRepositories $postRepositories
+     * @var PostRepositoriesInterface $postRepositories
      */
     private $postRepositories;
 
 
-    public function __construct(IPostRepositories $postRepositories)
+    public function __construct(PostRepositoriesInterface $postRepositories)
     {
         $this->postRepositories = $postRepositories;
     }
@@ -28,5 +28,4 @@ class PostServices
         $allPost = $this->postRepositories->all();
         return $allPost;
     }
-
 }

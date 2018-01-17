@@ -7,7 +7,7 @@ namespace Romss\Database;
  *
  * @package Database
  */
-interface IStatement
+interface StatementInterface
 {
     /**
      * @param $parameter

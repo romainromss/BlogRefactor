@@ -2,18 +2,18 @@
 
 namespace App\Repositories;
 
-use Romss\Database\IDatabase;
-use Romss\Database\IStatement;
+use Romss\Database\DatabaseInterface;
+use Romss\Database\StatementInterface;
 
-class PdoPostRepository implements IPostRepositories
+class PdoPostRepository implements PostRepositoriesInterface
 {
 
     /**
-     * @var IDatabase
+     * @var DatabaseInterface
      */
     private $database;
 
-    public function __construct(IDatabase $database)
+    public function __construct(DatabaseInterface $database)
     {
         $this->database = $database;
     }
@@ -58,9 +58,9 @@ class PdoPostRepository implements IPostRepositories
 
     /**
      * @param $post
-     * @return IStatement
+     * @return StatementInterface
      */
-    public function updatePost($post): IStatement
+    public function updatePost($post): StatementInterface
     {
         return $this->database->request('UPDATE posts
         SET title = :title,
@@ -75,13 +75,5 @@ class PdoPostRepository implements IPostRepositories
             ':content' => $post['content'],
             ':author' => $post['author']
         ]);
-    }
-
-    /**
-     * @return array
-     */
-    public function countPost(): array
-    {
-        // TODO: Implement countPost() method.
     }
 }
