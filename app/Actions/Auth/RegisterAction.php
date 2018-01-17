@@ -119,3 +119,4 @@ class RegisterAction extends ActionsParams
         ]);
     }
 }
+

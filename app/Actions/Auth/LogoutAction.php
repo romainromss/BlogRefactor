@@ -20,3 +20,4 @@ class LogoutAction extends ActionsParams
        ]);
     }
 }
+

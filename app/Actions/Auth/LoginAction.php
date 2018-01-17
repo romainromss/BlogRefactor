@@ -75,3 +75,4 @@ class LoginAction extends ActionsParams
         ]);
     }
 }
+

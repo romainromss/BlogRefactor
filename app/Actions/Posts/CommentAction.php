@@ -26,3 +26,4 @@ class CommentAction
         return $result;
     }
 }
+

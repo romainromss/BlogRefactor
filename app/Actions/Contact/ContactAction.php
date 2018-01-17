@@ -82,3 +82,4 @@ class ContactAction extends ActionsParams
         ]);
     }
 }
+

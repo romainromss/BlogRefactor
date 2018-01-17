@@ -58,3 +58,4 @@ class VerifyMailAction extends ActionsParams
         ]);
     }
 }
+

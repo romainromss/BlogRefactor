@@ -29,3 +29,4 @@ interface PostRepositoriesInterface
      */
     public function updatePost($post): StatementInterface;
 }
+

@@ -32,3 +32,4 @@ interface CommentRepositoriesInterface
      */
     public function updateComment($comment): StatementInterface;
 }
+
