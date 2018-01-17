@@ -13,9 +13,11 @@ interface IRender
 
     /**
      * @param string $view
+     * @param array|null $params
+     * @param string $type
      * @return mixed
      */
-    public  function  render(string  $view,  array $params = null);
+    public  function  render(string  $view,  array $params = null, $type = 'html');
 
     /**
      * @param string $key

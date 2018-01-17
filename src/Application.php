@@ -61,6 +61,7 @@ class Application
         $containerBuilder->addDefinitions(__DIR__.'/../configs/dic/database.php');
         $containerBuilder->addDefinitions(__DIR__.'/../configs/dic/repositories.php');
         $containerBuilder->addDefinitions(__DIR__.'/../configs/dic/render.php');
+        $containerBuilder->addDefinitions(__DIR__. '/../configs/dic/SwiftMailer.php');
         $this->container = $containerBuilder->build();
 
         $this->initRouter();
@@ -82,9 +83,19 @@ class Application
                 $middlewares = [];
             }
 
+            $middlewaresGlobals = (require __DIR__.'/../app/Middlewares/GlobalsMiddlewares/Middlewares.php');
+            $middlewares = array_merge($middlewaresGlobals, $middlewares);
+
             $dispatcher = new Dispatcher($this->container, $middlewares);
             $dispatcher->pipe($route->getMatchedMiddleware());
             $result = $dispatcher->process($this->request, $this->response);
+
+            $location = $result->getHeader('Location');
+            if (!empty($location)) {
+                header("HTTP/{$result->getProtocolVersion()} 301 Moved Permantly", false, 301);
+                header('Location: '.$location[0]);
+                exit();
+            }
 
             send_response($result);
         }

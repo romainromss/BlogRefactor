@@ -15,11 +15,12 @@ class CommentServices
 
     /**
      * @param int $postId
+     * @param bool $checkValidated
      * @return array
      */
-    public function getCommentId(int $postId):array
+    public function getCommentId(int $postId, bool $checkValidated):array
     {
-        $comment = $this->commentRepositories->getCommentById($postId);
+        $comment = $this->commentRepositories->getCommentById($postId, $checkValidated);
         return $comment;
     }
 

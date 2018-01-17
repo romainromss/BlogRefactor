@@ -43,16 +43,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    {% if __session.auth %}
+
+                {% if __session.auth %}
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout">Déconnexion</a>
-                    {% else %}
+                    </li>
+                {% else %}
+                    <li class="nav-item">
                         <a class="nav-link" href="/login">Se connecter</a>
-                    {% endif %}
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">S'enregistrer</a>
-                </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">S'enregistrer</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -79,10 +82,10 @@
 
 <!-- Main Content -->
 {% if (__flash) %}
-<div class="alert alert-dismissible alert-{{ __flash.type }}">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    {{ __flash.content }}
-</div>
+    <div class="alert alert-dismissible alert-{{ __flash.type }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ __flash.content }}
+    </div>
 {% endif %}
 
 {% block content %}
@@ -123,7 +126,7 @@
                         </a>
                     </li>
                 </ul>
-                <p class="copyright text-muted">Copyright &copy; 2017</p>
+                <p class="copyright text-muted">Copyright &copy; 2018</p>
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@ class PdoUserRepository implements IUserRepositories
      * @param $email
      * @return array|string
      */
-    public function getUserByEmail($email): string
+    public function getUserByEmail($email)
     {
         return $this->database->request(
             'SELECT id, password, email, email_token, register_at, connection_at, rank FROM users
@@ -53,7 +53,7 @@ class PdoUserRepository implements IUserRepositories
      * @param $userId
      * @return array|int
      */
-    public function getUserById($userId): int
+    public function getUserById($userId)
     {
         return $this->database->request(
             'SELECT id, password, email, email_token, register_at, connection_at, rank FROM users
@@ -84,4 +84,11 @@ class PdoUserRepository implements IUserRepositories
             ':userId' => $user['id']
         ]);
     }
- }
+
+    public function allusers()
+    {
+       return $this->database->request(
+           'SELECT * FROM users'
+    )->fetchAll();
+    }
+}

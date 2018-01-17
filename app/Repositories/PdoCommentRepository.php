@@ -26,16 +26,18 @@ class PdoCommentRepository implements ICommentRepositories
         return $this->database->request('SELECT * FROM comments')->fetchAll();
     }
 
-
     /**
      * @param int $postId
+     * @param bool $checkValidated
      * @return array
      */
-    public function getCommentById(int $postId): array
+    public function getCommentById(int $postId, bool $checkValidated): array
     {
-        return $this->database->request('SELECT * FROM comments WHERE post_id = :postId',
-            [
-            ':postId' => $postId
+        return $this->database->request('
+            SELECT * FROM comments WHERE post_id = :postId AND validated = :check', [
+
+            ':postId' => $postId,
+            ':check' => intval($checkValidated)
         ])->fetchAll();
     }
 

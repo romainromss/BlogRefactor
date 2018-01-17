@@ -1,1271 +1,1221 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="Admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="Admin/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="Admin/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="Admin/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="Admin/dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="Admin/bower_components/morris.js/morris.css">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="Admin/bower_components/jvectormap/jquery-jvectormap.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="Admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="Admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="Admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <meta charset="utf-8">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <title>OneUI - Admin Dashboard Template &amp; UI Framework</title>
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/assets/img/favicons/favicon.png">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-192x192.png" sizes="192x192">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Web fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+    <!-- Bootstrap and OneUI CSS framework -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" id="css-main" href="/assets/css/oneui.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="/assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<body>
+<!-- Page Container -->
+<!--
+    Available Classes:
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="/" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
+    'enable-cookies'             Remembers active color theme between pages (when set through color theme list)
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        AdminLTE Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sales Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+    'sidebar-l'                  Left Sidebar and right Side Overlay
+    'sidebar-r'                  Right Sidebar and left Side Overlay
+    'sidebar-mini'               Mini hoverable Sidebar (> 991px)
+    'sidebar-o'                  Visible Sidebar by default (> 991px)
+    'sidebar-o-xs'               Visible Sidebar by default (< 992px)
 
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
+    'side-overlay-hover'         Hoverable Side Overlay (> 991px)
+    'side-overlay-o'             Visible Side Overlay by default (> 991px)
+
+    'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
+
+    'header-navbar-fixed'        Enables fixed header
+-->
+<div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+    <!-- Side Overlay-->
+    <aside id="side-overlay">
+        <!-- Side Overlay Scroll Container -->
+        <div id="side-overlay-scroll">
+            <!-- Side Header -->
+            <div class="side-header side-content">
+                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                <button class="btn btn-default pull-right" type="button" data-toggle="layout" data-action="side_overlay_close">
+                    <i class="fa fa-times"></i>
+                </button>
+                <span>
+                            <img class="img-avatar img-avatar32" src="/assets/img/avatars/avatar10.jpg" alt="">
+                            <span class="font-w600 push-10-l">Eugene Burke</span>
+                        </span>
+            </div>
+            <!-- END Side Header -->
+
+            <!-- Side Content -->
+            <div class="side-content remove-padding-t">
+                <!-- Side Overlay Tabs -->
+                <div class="block pull-r-l border-t">
+                    <ul class="nav nav-tabs nav-tabs-alt nav-justified" data-toggle="tabs">
+                        <li class="active">
+                            <a href="#tabs-side-overlay-overview"><i class="fa fa-fw fa-coffee"></i> Overview</a>
+                        </li>
+                        <li>
+                            <a href="#tabs-side-overlay-sales"><i class="fa fa-fw fa-line-chart"></i> Sales</a>
+                        </li>
+                    </ul>
+                    <div class="block-content tab-content">
+                        <!-- Overview Tab -->
+                        <div class="tab-pane fade fade-right in active" id="tabs-side-overlay-overview">
+                            <!-- Activity -->
+                            <div class="block pull-r-l">
+                                <div class="block-header bg-gray-lighter">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Recent Activity</h3>
+                                </div>
+                                <div class="block-content">
+                                    <!-- Activity List -->
+                                    <ul class="list list-activity">
+                                        <li>
+                                            <i class="si si-wallet text-success"></i>
+                                            <div class="font-w600">New sale ($15)</div>
+                                            <div><a href="javascript:void(0)">Admin Template</a></div>
+                                            <div><small class="text-muted">3 min ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="si si-pencil text-info"></i>
+                                            <div class="font-w600">You edited the file</div>
+                                            <div><a href="javascript:void(0)"><i class="fa fa-file-text-o"></i> Documentation.doc</a></div>
+                                            <div><small class="text-muted">15 min ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="si si-close text-danger"></i>
+                                            <div class="font-w600">Project deleted</div>
+                                            <div><a href="javascript:void(0)">Line Icon Set</a></div>
+                                            <div><small class="text-muted">4 hours ago</small></div>
+                                        </li>
+                                    </ul>
+                                    <!-- END Activity List -->
+                                </div>
+                            </div>
+                            <!-- END Activity -->
+
+                            <!-- Online Friends -->
+                            <div class="block pull-r-l">
+                                <div class="block-header bg-gray-lighter">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Online Friends</h3>
+                                </div>
+                                <div class="block-content block-content-full">
+                                    <!-- Users Navigation -->
+                                    <ul class="nav-users remove-margin-b">
+                                        <li>
+                                            <a href="base_pages_profile.html">
+                                                <img class="img-avatar" src="/assets/img/avatars/avatar2.jpg" alt="">
+                                                <i class="fa fa-circle text-success"></i> Emma Cooper
+                                                <div class="font-w400 text-muted"><small>Copywriter</small></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile.html">
+                                                <img class="img-avatar" src="/assets/img/avatars/avatar15.jpg" alt="">
+                                                <i class="fa fa-circle text-success"></i> Ronald George
+                                                <div class="font-w400 text-muted"><small>Web Developer</small></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile.html">
+                                                <img class="img-avatar" src="/assets/img/avatars/avatar7.jpg" alt="">
+                                                <i class="fa fa-circle text-success"></i> Evelyn Willis
+                                                <div class="font-w400 text-muted"><small>Web Designer</small></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile.html">
+                                                <img class="img-avatar" src="/assets/img/avatars/avatar3.jpg" alt="">
+                                                <i class="fa fa-circle text-warning"></i> Megan Dean
+                                                <div class="font-w400 text-muted"><small>Photographer</small></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile.html">
+                                                <img class="img-avatar" src="/assets/img/avatars/avatar10.jpg" alt="">
+                                                <i class="fa fa-circle text-warning"></i> Bruce Edwards
+                                                <div class="font-w400 text-muted"><small>Graphic Designer</small></div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- END Users Navigation -->
+                                </div>
+                            </div>
+                            <!-- END Online Friends -->
+
+                            <!-- Quick Settings -->
+                            <div class="block pull-r-l">
+                                <div class="block-header bg-gray-lighter">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Quick Settings</h3>
+                                </div>
+                                <div class="block-content">
+                                    <!-- Quick Settings Form -->
+                                    <form class="form-bordered" action="base_pages_dashboard.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <div class="font-s13 font-w600">Online Status</div>
+                                                    <div class="font-s13 font-w400 text-muted">Show your status to all</div>
+                                                </div>
+                                                <div class="col-xs-4 text-right">
+                                                    <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                        <input type="checkbox"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <div class="font-s13 font-w600">Auto Updates</div>
+                                                    <div class="font-s13 font-w400 text-muted">Keep up to date</div>
+                                                </div>
+                                                <div class="col-xs-4 text-right">
+                                                    <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                        <input type="checkbox"><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <div class="font-s13 font-w600">Notifications</div>
+                                                    <div class="font-s13 font-w400 text-muted">Do you need them?</div>
+                                                </div>
+                                                <div class="col-xs-4 text-right">
+                                                    <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                        <input type="checkbox" checked><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <div class="font-s13 font-w600">API Access</div>
+                                                    <div class="font-s13 font-w400 text-muted">Enable/Disable access</div>
+                                                </div>
+                                                <div class="col-xs-4 text-right">
+                                                    <label class="css-input switch switch-sm switch-primary push-10-t">
+                                                        <input type="checkbox" checked><span></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END Quick Settings Form -->
+                                </div>
+                            </div>
+                            <!-- END Quick Settings -->
+                        </div>
+                        <!-- END Overview Tab -->
+
+                        <!-- Sales Tab -->
+                        <div class="tab-pane fade fade-left" id="tabs-side-overlay-sales">
+                            <div class="block pull-r-l">
+                                <!-- Stats -->
+                                <div class="block-content pull-t">
+                                    <div class="row items-push">
+                                        <div class="col-xs-6">
+                                            <div class="font-w700 text-gray-darker text-uppercase">Sales</div>
+                                            <a class="h3 font-w300 text-primary" href="javascript:void(0)">22030</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="font-w700 text-gray-darker text-uppercase">Balance</div>
+                                            <a class="h3 font-w300 text-primary" href="javascript:void(0)">$ 4.589,00</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END Stats -->
+
+                                <!-- Today -->
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <span class="font-w600 font-s13 text-gray-darker text-uppercase">Today</span>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <span class="font-s13 text-muted">$996</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <ul class="list list-activity pull-r-l">
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $249</div>
+                                            <div><small class="text-muted">3 min ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $129</div>
+                                            <div><small class="text-muted">50 min ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $119</div>
+                                            <div><small class="text-muted">2 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $499</div>
+                                            <div><small class="text-muted">3 hours ago</small></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END Today -->
+
+                                <!-- Yesterday -->
+                                <div class="block-content block-content-full block-content-mini bg-gray-lighter">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <span class="font-w600 font-s13 text-gray-darker text-uppercase">Yesterday</span>
+                                        </div>
+                                        <div class="col-xs-6 text-right">
+                                            <span class="font-s13 text-muted">$765</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-content">
+                                    <ul class="list list-activity pull-r-l">
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $249</div>
+                                            <div><small class="text-muted">26 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-danger"></i>
+                                            <div class="font-w600">Product Purchase - $50</div>
+                                            <div><small class="text-muted">28 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $119</div>
+                                            <div><small class="text-muted">29 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-danger"></i>
+                                            <div class="font-w600">Paypal Withdrawal - $300</div>
+                                            <div><small class="text-muted">37 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $129</div>
+                                            <div><small class="text-muted">39 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $119</div>
+                                            <div><small class="text-muted">45 hours ago</small></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-circle text-success"></i>
+                                            <div class="font-w600">New sale! + $499</div>
+                                            <div><small class="text-muted">46 hours ago</small></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END Yesterday -->
+
+                                <!-- More -->
+                                <div class="text-center">
+                                    <small><a href="javascript:void(0)">Load More..</a></small>
+                                </div>
+                                <!-- END More -->
+                            </div>
+                        </div>
+                        <!-- END Sales Tab -->
+                    </div>
                 </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                <!-- END Side Overlay Tabs -->
+            </div>
+            <!-- END Side Content -->
+        </div>
+        <!-- END Side Overlay Scroll Container -->
+    </aside>
+    <!-- END Side Overlay -->
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <!-- Sidebar Scroll Container -->
+        <div id="sidebar-scroll">
+            <!-- Sidebar Content -->
+            <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+            <div class="sidebar-content">
+                <!-- Side Header -->
+                <div class="side-header side-content bg-white-op">
+                    <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                    <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">
+                            <i class="si si-drop"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right font-s13 sidebar-mini-hide">
+                            <li>
+                                <a data-toggle="theme" data-theme="default" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-default pull-right"></i> <span class="font-w600">Default</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="theme" data-theme="/assets/css/themes/amethyst.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-amethyst pull-right"></i> <span class="font-w600">Amethyst</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="theme" data-theme="/assets/css/themes/city.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-city pull-right"></i> <span class="font-w600">City</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="theme" data-theme="/assets/css/themes/flat.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-flat pull-right"></i> <span class="font-w600">Flat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="theme" data-theme="/assets/css/themes/modern.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-modern pull-right"></i> <span class="font-w600">Modern</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="theme" data-theme="/assets/css/themes/smooth.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <i class="fa fa-circle text-smooth pull-right"></i> <span class="font-w600">Smooth</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="h5 text-white" href="index.html">
+                        <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">ne</span>
+                    </a>
                 </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <!-- END Side Header -->
+
+                <!-- Side Content -->
+                <div class="side-content side-content-full">
+                    <ul class="nav-main">
+                        <li>
+                            <a href="base_pages_dashboard.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="base_pages_dashboard_v2.html"><i class="si si-rocket"></i><span class="sidebar-mini-hide">Dashboard v2</span></a>
+                        </li>
+                        <li>
+                            <a href="base_pages_dashboard_v3.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard v3</span></a>
+                        </li>
+                        <li class="nav-main-heading"><span class="sidebar-mini-hide">User Interface</span></li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-badge"></i><span class="sidebar-mini-hide">UI Elements</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_ui_widgets.html">Widgets</a>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Blocks</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_ui_blocks.html">Styles</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_ui_blocks_api.html">Blocks API</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_ui_blocks_draggable.html">Draggable</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="base_ui_grid.html">Grid</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_icons.html">Icons</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_buttons.html">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_activity.html">Activity</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_tabs.html">Tabs</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_tiles.html">Tiles</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_cards.html">Cards</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_ribbons.html">Ribbons</a>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Chat</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_ui_chat_full.html">Full</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_ui_chat_fixed.html">Fixed</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_ui_chat_popup.html">Popup</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Timeline</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_ui_timeline.html">Various</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_ui_timeline_social.html">Social</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="base_ui_navigation.html">Navigation</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_modals_tooltips.html">Modals &amp; Tooltips</a>
+                                </li>
+                                <li>
+                                    <a href="base_ui_color_themes.html">Color Themes</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-grid"></i><span class="sidebar-mini-hide">Tables</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_tables_styles.html">Styles</a>
+                                </li>
+                                <li>
+                                    <a href="base_tables_responsive.html">Responsive</a>
+                                </li>
+                                <li>
+                                    <a href="base_tables_tools.html">Tools</a>
+                                </li>
+                                <li>
+                                    <a href="base_tables_pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="base_tables_datatables.html">DataTables</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Forms</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_forms_premade.html">Pre-made</a>
+                                </li>
+                                <li>
+                                    <a href="base_forms_elements.html">Elements</a>
+                                </li>
+                                <li>
+                                    <a href="base_forms_pickers_more.html">Pickers &amp; More</a>
+                                </li>
+                                <li>
+                                    <a href="base_forms_editors.html">Text Editors</a>
+                                </li>
+                                <li>
+                                    <a href="base_forms_validation.html">Validation</a>
+                                </li>
+                                <li>
+                                    <a href="base_forms_wizard.html">Wizard</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-main-heading"><span class="sidebar-mini-hide">Develop</span></li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench"></i><span class="sidebar-mini-hide">Components</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_comp_images.html">Images</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_image_cropper.html">Image Cropper</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_charts.html">Charts (Various)</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_chartjs_v2.html">Charts.js v2</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_calendar.html">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_sliders.html">Sliders</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_animations.html">Animations</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_scrolling.html">Scrolling</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_syntax_highlighting.html">Syntax Highlighting</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_rating.html">Rating</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_treeview.html">Tree View</a>
+                                </li>
+                                <li>
+                                    <a href="base_comp_masonry.html">Masonry</a>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Maps</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_comp_maps.html">Google</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_comp_maps_full.html">Google Full</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_comp_maps_vector.html">Vector</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Gallery</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_comp_gallery_simple.html">Simple</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_comp_gallery_advanced.html">Advanced</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-magic-wand"></i><span class="sidebar-mini-hide">Layouts</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_layouts_api.html">Layout API</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_default.html">Default</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_default_flipped.html">Default Flipped</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_header_static.html">Static Header</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_sidebar_mini_hoverable.html">Mini Sidebar (Hoverable)</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_side_overlay_hoverable.html">Side Overlay (Hoverable)</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_side_overlay_open.html">Side Overlay (Open)</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_side_native_scrolling.html">Side Native Scrolling</a>
+                                </li>
+                                <li>
+                                    <a href="base_layouts_sidebar_hidden.html">Hidden Sidebar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Multi Level Menu</span></a>
+                            <ul>
+                                <li>
+                                    <a href="#">Link 1-1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Link 1-2</a>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 2</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Link 2-1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Link 2-2</a>
+                                        </li>
+                                        <li>
+                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 3</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Link 3-1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Link 3-2</a>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 4</a>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#">Link 4-1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Link 4-2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 5</a>
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="#">Link 5-1</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Link 5-2</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">Sub Level 6</a>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <a href="#">Link 6-1</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">Link 6-2</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-main-heading"><span class="sidebar-mini-hide">Pages</span></li>
+                        <li class="open">
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Generic</span></a>
+                            <ul>
+                                <li>
+                                    <a class="active" href="base_pages_blank.html">Blank</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_search.html">Search Results</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_inbox.html">Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_files.html">Files</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_tickets.html">Tickets</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_contacts.html">Contacts</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_team.html">Team</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_about.html">About</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_upgrade_plan.html">Upgrade Plan</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_contact.html">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_support.html">Support</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_coming_soon.html">Coming Soon</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_coming_soon_v2.html">Coming Soon v2</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_maintenance.html">Maintenance</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">Page Packs</span></a>
+                            <ul>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-bitcoin"></i>Crypto</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_crypto_dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_crypto_buy_sell.html">Buy/Sell</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_crypto_wallets.html">Wallets</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_crypto_settings.html">Edit</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bag"></i>e-Commerce</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_ecom_dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_orders.html">Orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_order.html">Order</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_products.html">Products</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_product_edit.html">Product Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_customer.html">Customer</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-handbag"></i>e-Commerce Store</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_ecom_store_home.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_store_search.html">Search Results</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_store_products.html">Products List</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_store_product.html">Product Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_ecom_store_checkout.html">Checkout</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-user"></i>User Profile</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_profile.html">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile_v2.html">Profile v2</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_profile_edit.html">Profile Edit</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bubbles"></i>Forum</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_forum_categories.html">Categories</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_forum_topics.html">Topics</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_forum_discussion.html">Discussion</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_forum_new_topic.html">New Topic</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-briefcase"></i>Projects</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_projects_dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_projects_view.html">Project</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_projects_create.html">Create</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_projects_edit.html">Edit</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-pencil"></i>Blog</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_blog_classic.html">Classic</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_blog_list.html">List</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_blog_grid.html">Grid</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_blog_story.html">Story</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_blog_story_cover.html">Story Cover</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-graduation"></i>e-Learning</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_elearning_courses.html">Courses</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_elearning_course.html">Course</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_elearning_lesson.html">Lesson</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-plane"></i>Travel</a>
+                                    <ul>
+                                        <li>
+                                            <a href="base_pages_travel_agency.html">Agency</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_travel_package.html">Package</a>
+                                        </li>
+                                        <li>
+                                            <a href="base_pages_travel_guide.html">Guide</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-lock"></i><span class="sidebar-mini-hide">Authentication</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_pages_auth.html">All Pages</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_login.html">Log In</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_login_v2.html">Log In v2</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_register.html">Register</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_register_v2.html">Register v2</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_lock.html">Lock Screen</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_lock_v2.html">Lock Screen v2</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_reminder.html">Password Reminder</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_reminder_v2.html">Password Reminder v2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-fire"></i><span class="sidebar-mini-hide">Error Pages</span></a>
+                            <ul>
+                                <li>
+                                    <a href="base_pages_errors.html">All Pages</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_400.html">400</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_401.html">401</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_403.html">403</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_404.html">404</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_500.html">500</a>
+                                </li>
+                                <li>
+                                    <a href="base_pages_503.html">503</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
-      </div>
+                <!-- END Side Content -->
+            </div>
+            <!-- Sidebar Content -->
+        </div>
+        <!-- END Sidebar Scroll Container -->
     </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+    <!-- END Sidebar -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-            </div>
-          </div>
-          <!-- /.nav-tabs-custom -->
-
-          <!-- Chat box -->
-          <div class="box box-success">
-            <div class="box-header">
-              <i class="fa fa-comments-o"></i>
-
-              <h3 class="box-title">Chat</h3>
-
-              <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                <div class="btn-group" data-toggle="btn-toggle">
-                  <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
-                  </button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="box-body chat" id="chat-box">
-              <!-- chat item -->
-              <div class="item">
-                <img src="dist/img/user4-128x128.jpg" alt="user image" class="online">
-
-                <p class="message">
-                  <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                    Mike Doe
-                  </a>
-                  I would like to meet you to discuss the latest news about
-                  the arrival of the new theme. They say it is going to be one the
-                  best themes on the market
-                </p>
-                <div class="attachment">
-                  <h4>Attachments:</h4>
-
-                  <p class="filename">
-                    Theme-thumbnail-image.jpg
-                  </p>
-
-                  <div class="pull-right">
-                    <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
-                  </div>
-                </div>
-                <!-- /.attachment -->
-              </div>
-              <!-- /.item -->
-              <!-- chat item -->
-              <div class="item">
-                <img src="dist/img/user3-128x128.jpg" alt="user image" class="offline">
-
-                <p class="message">
-                  <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                    Alexander Pierce
-                  </a>
-                  I would like to meet you to discuss the latest news about
-                  the arrival of the new theme. They say it is going to be one the
-                  best themes on the market
-                </p>
-              </div>
-              <!-- /.item -->
-              <!-- chat item -->
-              <div class="item">
-                <img src="dist/img/user2-160x160.jpg" alt="user image" class="offline">
-
-                <p class="message">
-                  <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                    Susan Doe
-                  </a>
-                  I would like to meet you to discuss the latest news about
-                  the arrival of the new theme. They say it is going to be one the
-                  best themes on the market
-                </p>
-              </div>
-              <!-- /.item -->
-            </div>
-            <!-- /.chat -->
-            <div class="box-footer">
-              <div class="input-group">
-                <input class="form-control" placeholder="Type message...">
-
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.box (chat box) -->
-
-          <!-- TO DO List -->
-          <div class="box box-primary">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">To Do List</h3>
-
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <ul class="todo-list">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="">
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Make the theme responsive</span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-            </div>
-          </div>
-          <!-- /.box -->
-
-          <!-- quick email widget -->
-          <div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-envelope"></i>
-
-              <h3 class="box-title">Quick Email</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
-                        title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <div class="box-body">
-              <form action="#" method="post">
-                <div class="form-group">
-                  <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject">
-                </div>
-                <div>
-                  <textarea class="textarea" placeholder="Message"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="box-footer clearfix">
-              <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
-                <i class="fa fa-arrow-circle-right"></i></button>
-            </div>
-          </div>
-
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
-
-          <!-- Map box -->
-          <div class="box box-solid bg-light-blue-gradient">
-            <div class="box-header">
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip"
-                        title="Date range">
-                  <i class="fa fa-calendar"></i></button>
-                <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                        data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                  <i class="fa fa-minus"></i></button>
-              </div>
-              <!-- /. tools -->
-
-              <i class="fa fa-map-marker"></i>
-
-              <h3 class="box-title">
-                Visitors
-              </h3>
-            </div>
-            <div class="box-body">
-              <div id="world-map" style="height: 250px; width: 100%;"></div>
-            </div>
-            <!-- /.box-body-->
-            <div class="box-footer no-border">
-              <div class="row">
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <div id="sparkline-1"></div>
-                  <div class="knob-label">Visitors</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <div id="sparkline-2"></div>
-                  <div class="knob-label">Online</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center">
-                  <div id="sparkline-3"></div>
-                  <div class="knob-label">Exists</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.box -->
-
-          <!-- solid sales graph -->
-          <div class="box box-solid bg-teal-gradient">
-            <div class="box-header">
-              <i class="fa fa-th"></i>
-
-              <h3 class="box-title">Sales Graph</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body border-radius-none">
-              <div class="chart" id="line-chart" style="height: 250px;"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer no-border">
-              <div class="row">
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">Mail-Orders</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">Online</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">In-Store</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
-
-          <!-- Calendar -->
-          <div class="box box-solid bg-green-gradient">
-            <div class="box-header">
-              <i class="fa fa-calendar"></i>
-
-              <h3 class="box-title">Calendar</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <!-- button with a dropdown -->
+    <!-- Header -->
+    <header id="header-navbar" class="content-mini content-mini-full">
+        <!-- Header Navigation Right -->
+        <ul class="nav-header pull-right">
+            <li>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bars"></i></button>
-                  <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Add new event</a></li>
-                    <li><a href="#">Clear events</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">View calendar</a></li>
-                  </ul>
+                    <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
+                        <img src="/assets/img/avatars/avatar10.jpg" alt="Avatar">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-header">Profile</li>
+                        <li>
+                            <a tabindex="-1" href="base_pages_inbox.html">
+                                <i class="si si-envelope-open pull-right"></i>
+                                <span class="badge badge-primary pull-right">3</span>Inbox
+                            </a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" href="base_pages_profile.html">
+                                <i class="si si-user pull-right"></i>
+                                <span class="badge badge-success pull-right">1</span>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" href="javascript:void(0)">
+                                <i class="si si-settings pull-right"></i>Settings
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Actions</li>
+                        <li>
+                            <a tabindex="-1" href="base_pages_lock.html">
+                                <i class="si si-lock pull-right"></i>Lock Account
+                            </a>
+                        </li>
+                        <li>
+                            <a tabindex="-1" href="base_pages_login.html">
+                                <i class="si si-logout pull-right"></i>Log out
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+            </li>
+            <li>
+                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
+                    <i class="fa fa-tasks"></i>
                 </button>
-                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+            </li>
+        </ul>
+        <!-- END Header Navigation Right -->
+
+        <!-- Header Navigation Left -->
+        <ul class="nav-header pull-left">
+            <li class="hidden-md hidden-lg">
+                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
+                    <i class="fa fa-navicon"></i>
                 </button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <!--The calendar -->
-              <div id="calendar" style="width: 100%"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer text-black">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Progress bars -->
-                  <div class="clearfix">
-                    <span class="pull-left">Task #1</span>
-                    <small class="pull-right">90%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #2</span>
-                    <small class="pull-right">70%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6">
-                  <div class="clearfix">
-                    <span class="pull-left">Task #3</span>
-                    <small class="pull-right">60%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #4</span>
-                    <small class="pull-right">40%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.box -->
-
-        </section>
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
+            </li>
+            <li class="hidden-xs hidden-sm">
+                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
+                    <i class="fa fa-ellipsis-v"></i>
+                </button>
+            </li>
+            <li>
+                <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
+                <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal" type="button">
+                    <i class="si si-grid"></i>
+                </button>
+            </li>
+            <li class="visible-xs">
+                <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
+                <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </li>
+            <li class="js-header-search header-search">
+                <form class="form-horizontal" action="base_pages_search.html" method="post">
+                    <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
+                        <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
+                        <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                    </div>
+                </form>
+            </li>
         </ul>
-        <!-- /.control-sidebar-menu -->
+        <!-- END Header Navigation Left -->
+    </header>
+    <!-- END Header -->
 
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Header -->
+        <div class="content bg-gray-lighter">
+            <div class="row items-push">
+                <div class="col-sm-7">
+                    <h1 class="page-heading">
+                             {{ users.email }}
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- END Page Header -->
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
+        <!-- Page Content -->
+        <div class="content">
+            <h2 class="content-heading">Your content</h2>
+            <button class="btn btn-minw btn-primary" type="button">Primary</button>
+            <p>...</p>
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+    <!-- Footer -->
+    <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+        <div class="pull-right">
+            Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+        </div>
+        <div class="pull-left">
+            <a class="font-w600" href="http://goo.gl/6LF10W" target="_blank">OneUI 3.4</a> &copy; <span class="js-year-copy">2015</span>
+        </div>
+    </footer>
+    <!-- END Footer -->
 </div>
-<!-- ./wrapper -->
+<!-- END Page Container -->
 
-<!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="bower_components/raphael/raphael.min.js"></script>
-<script src="bower_components/morris.js/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="bower_components/moment/min/moment.min.js"></script>
-<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- Apps Modal -->
+<!-- Opens from the button in the header -->
+<div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-sm modal-dialog modal-dialog-top">
+        <div class="modal-content">
+            <!-- Apps Block -->
+            <div class="block block-themed block-transparent">
+                <div class="block-header bg-primary-dark">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Apps</h3>
+                </div>
+                <div class="block-content">
+                    <div class="row text-center">
+                        <div class="col-xs-6">
+                            <a class="block block-rounded" href="base_pages_dashboard.html">
+                                <div class="block-content text-white bg-default">
+                                    <i class="si si-speedometer fa-2x"></i>
+                                    <div class="font-w600 push-15-t push-15">Backend</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="block block-rounded" href="bd_dashboard.html">
+                                <div class="block-content text-white bg-modern">
+                                    <i class="si si-rocket fa-2x"></i>
+                                    <div class="font-w600 push-15-t push-15">Boxed</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Apps Block -->
+        </div>
+    </div>
+</div>
+<!-- END Apps Modal -->
+
+<!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+<script src="/assets/js/core/jquery.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/core/jquery.slimscroll.min.js"></script>
+<script src="/assets/js/core/jquery.scrollLock.min.js"></script>
+<script src="/assets/js/core/jquery.appear.min.js"></script>
+<script src="/assets/js/core/jquery.countTo.min.js"></script>
+<script src="/assets/js/core/jquery.placeholder.min.js"></script>
+<script src="/assets/js/core/js.cookie.min.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

@@ -24,12 +24,12 @@ interface IStatement
     public function execute($input_parameters = null);
 
     /**
-     * @return array
+     * @return array|boolean|null
      */
-    public function fetch(): array;
+    public function fetch();
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function fetchAll(): array;
+    public function fetchAll();
 }

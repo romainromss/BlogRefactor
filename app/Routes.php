@@ -20,23 +20,38 @@ return [
         'middlewares' => []
     ],
     'login.index' => [
-        'methods' => ['GET'],['POST'],
+        'methods' => ['GET', 'POST'],
         'path' => '/login',
-        'action' => App\Actions\Login\LoginAction::class,
+        'action' => App\Actions\Auth\LoginAction::class,
         'middlewares' => []
-
-    ],
-    'register.index' => [
-        'methods' => ['GET'],['POST'],
-        'path' => '/register',
-        'action' => App\Actions\Register\RegisterAction::class,
-        'middlewares' => []
-
     ],
     'contact.index' => [
-        'methods' => ['GET'],['POST'],
+        'methods' => ['GET', 'POST'],
         'path' => '/contact',
         'action' => App\Actions\Contact\ContactAction::class,
+        'middlewares' => []
+    ],
+    'register.index' => [
+        'methods' => ['GET','POST'],
+        'path' => '/register',
+        'action' => App\Actions\Auth\RegisterAction::class,
+        'middlewares' => []
+    ],
+    'logout.index' => [
+        'methods' => ['GET'],
+        'path' => '/logout',
+        'action' => App\Actions\Auth\LogoutAction::class,
+        'middlewares' => []
+    ],
+    'verifyToken' =>[
+        'methods' =>['GET'],
+        'path' => '/verify/{id:[0-9]+}-{token:[a-z\-0-9]+}',
+        'action' => App\Actions\Auth\VerifyMailAction::class,
+    ],
+    'admin.index' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel',
+        'action' => App\Actions\Admin\AdminAction::class,
         'middlewares' => []
     ]
 ];

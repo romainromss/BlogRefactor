@@ -22,7 +22,7 @@ class CommentAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        $result = $this->commentServices->getCommentId(1);//a modifier une fois les routes cree.
+        $result = $this->commentServices->getCommentId(1, true);//a modifier une fois les routes cree.
         return $result;
     }
 }

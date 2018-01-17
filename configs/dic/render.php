@@ -4,7 +4,7 @@
  * La configuration de PHP-DI pour les rendus (html, json, ...)
  */
 
-use function \DI\get as di_get;
+use     function \DI\get as di_get;
 use function \DI\object as di_object;
 use function \DI\string as di_string;
 

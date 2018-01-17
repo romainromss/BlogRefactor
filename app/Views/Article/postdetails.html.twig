@@ -36,19 +36,25 @@
 
         <h3 class="addcom">Ajouter votre Commentaire</h3>
 
-        <form action="/posts/{{ post.id }}" method="post">
+        {% if (__auth) %}
+            <form action="/posts/{{ post.id }}" method="post">
+                <div>
+                    <label for="author">{{ __auth.email }}</label>
+                </div>
+                <div>
+                    <label for="comment">Commentaire</label><br>
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
+                <div>
+                    <input class="btn btn-primary btest" type="submit" />
+                </div>
+            </form>
+        {% else %}
             <div>
-                <label for="author">Auteur</label><br />
-                <input type="text" id="author" name="author" />
+                Vous devez vous <a href="/login">connecter</a> ou
+                vous <a href="/register">inscrire</a>
             </div>
-            <div>
-                <label for="comment">Commentaire</label><br />
-                <textarea id="comment" name="comment"></textarea>
-            </div>
-            <div>
-                <input class="btn btn-primary btest" type="submit" />
-            </div>
-        </form>
+        {% endif %}
     {% else %}
         <div class="col-xs text-center">
             <h6>Aucun article trouvé</h6>

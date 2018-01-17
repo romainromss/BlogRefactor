@@ -39,18 +39,24 @@ class PdoStatement implements IStatement
     }
 
     /**
-     * @return array
+     * @return array|boolean|null
      */
-    public function fetch(): array
+    public function fetch()
     {
-        return $this->statement->fetch();
+        if ($this->statement) {
+            return $this->statement->fetch();
+        }
+        return null;
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function fetchAll(): array
+    public function fetchAll()
     {
-        return $this->statement->fetchAll();
+        if ($this->statement) {
+            return $this->statement->fetchAll();
+        }
+        return null;
     }
 }

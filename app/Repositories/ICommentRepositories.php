@@ -15,9 +15,10 @@ interface ICommentRepositories
 
     /**
      * @param int $postId
+     * @param bool $checkValidated
      * @return array
      */
-    public function getCommentById(int $postId): array;
+    public function getCommentById(int $postId, bool $checkValidated): array;
 
     /**
      * @param $comment

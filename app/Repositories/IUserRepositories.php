@@ -11,24 +11,26 @@ interface IUserRepositories
      * @param $user
      * @return array
      */
-    public function registerUser($user): array ;
+    public function registerUser($user): array;
 
     /**
      * @param $email
      * @return string
      */
-    public function getUserByEmail($email): string ;
+    public function getUserByEmail($email);
 
     /**
      * @param $userId
-     * @return int
+     * @return array|bool
      */
-    public function getUserById($userId): int;
+    public function getUserById($userId);
 
     /**
      * @param $user
      * @return IStatement
      */
     public function updateUser($user): IStatement;
+
+    public function allusers();
 
 }

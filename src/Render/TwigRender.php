@@ -25,16 +25,16 @@ class TwigRender implements IRender
     }
 
 
-
     /**
      * @param string $view
      * @param array $params
+     * @param string $type
      * @return string
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function render(string $view, array $params = null)
+    public function render(string $view, array $params = null, $type = 'html')
     {
         if (isset($_SESSION['flash'])) {
             $params['__flash'] = $_SESSION['flash'];
@@ -42,9 +42,10 @@ class TwigRender implements IRender
         }
 
         $params['__session'] = $_SESSION;
-        $params['__page'] = $view.".html.twig";
+        $params['__auth'] = $_SESSION['auth'] ?? null;
+        $params['__page'] = $view.".{$type}.twig";
 
-     return $this->twig->render($view. '.html.twig', $params);
+     return $this->twig->render($view.".{$type}.twig", $params);
     }
 
 

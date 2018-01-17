@@ -39,7 +39,7 @@ class PostAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         //AJOUTER MESSAGE FLASH VARIABLE PAGE POUR TWIG
-        $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0));
+        $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0), true);
         $post = $this->postServices->getPostWithId($request->getAttribute('post', 0));
         $view = $container->get(IRender::class)->render('Article/postdetails', ['post' => $post, 'comments' => $comments]);
         $response->getBody()->write($view);
