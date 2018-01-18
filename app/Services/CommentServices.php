@@ -24,10 +24,28 @@ class CommentServices
         return $comment;
     }
 
+    public function getComment(int $id)
+    {
+        $commentId = $this->commentRepositories->getComment($id);
+        return $commentId;
+    }
+
     public function allComments(): array
     {
-       $allComments =$this->commentRepositories->all();
+       $allComments = $this->commentRepositories->all();
        return $allComments;
+    }
+
+    public function insertComment($comment ): array
+    {
+        $comment = $this->commentRepositories->insertComment($comment);
+        return $comment;
+    }
+
+    public function updateComment($comment)
+    {
+        $comment = $this->commentRepositories->updateComment($comment);
+        return $comment;
     }
 }
 

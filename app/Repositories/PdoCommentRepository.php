@@ -26,6 +26,13 @@ class PdoCommentRepository implements CommentRepositoriesInterface
         return $this->database->request('SELECT * FROM comments')->fetchAll();
     }
 
+    public function getComment(int $id)
+    {
+        return $this->database->request('SELECT * FROM comments WHERE id = :id', [
+            ':id' => $id
+        ])->fetch();
+    }
+
     /**
      * @param int $postId
      * @param bool $checkValidated
@@ -47,8 +54,9 @@ class PdoCommentRepository implements CommentRepositoriesInterface
      */
     public function insertComment($comment): array
     {
-        $this->database->request('INSERT INTO comments(author, comment, comment_at) 
-            VALUES(:author, :comment, NOW())', [
+        $this->database->request('INSERT INTO comments(post_id, author, comment, comment_at) 
+            VALUES(:post_id,:author, :comment, NOW())', [
+            'post_id'=>$comment['post_id'],
             ':author' => $comment['author'],
             ':comment' => $comment['comment'],
         ]);
@@ -67,11 +75,14 @@ class PdoCommentRepository implements CommentRepositoriesInterface
         SET post_id = :post_id,
             author = :author,
             comment = :comment,
-            comment_at = NOW()
+            comment_at = NOW(),
+            validated = :validated
         WHERE id = :id', [
+            ':id' =>$comment['id'],
             ':post_id' => $comment['post_id'],
             ':author' => $comment['author'],
             ':comment' => $comment['comment'],
+            ':validated' => $comment['validated']
         ]);
     }
 }

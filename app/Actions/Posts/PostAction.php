@@ -38,11 +38,11 @@ class PostAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0), true);
-        $post = $this->postServices->getPostWithId($request->getAttribute('post', 0));
-        $view = $container->get(RenderInterface::class)->render('Article/postdetails', ['post' => $post, 'comments' => $comments]);
-        $response->getBody()->write($view);
-        return $response;
+            $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0), true);
+            $post = $this->postServices->getPostWithId($request->getAttribute('post', 0));
+            $view = $container->get(RenderInterface::class)->render('Article/postdetails', ['post' => $post, 'comments' => $comments]);
+            $response->getBody()->write($view);
+            return $response;
     }
 }
 

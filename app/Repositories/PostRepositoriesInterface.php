@@ -13,9 +13,9 @@ interface PostRepositoriesInterface
 
     /**
      * @param int $id
-     * @return array
+     * @return array|bool
      */
-    public function getByPostId(int $id): array;
+    public function getByPostId(int $id);
 
     /**
      * @param $post
@@ -28,5 +28,7 @@ interface PostRepositoriesInterface
      * @return StatementInterface
      */
     public function updatePost($post): StatementInterface;
+
+    public function deletePost(int $id);
 }
 

@@ -31,6 +31,7 @@ interface UserRepositoriesInterface
      */
     public function updateUser($user): StatementInterface;
 
+
     public function allusers();
 }
 

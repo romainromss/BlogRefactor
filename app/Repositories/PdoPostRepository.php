@@ -28,9 +28,9 @@ class PdoPostRepository implements PostRepositoriesInterface
 
     /**
      * @param int $id
-     * @return array
+     * @return array|bool
      */
-    public function getByPostId(int $id): array
+    public function getByPostId(int $id)
     {
         return $this->database->request('SELECT * FROM posts WHERE id = :id', [
             ':id' => $id
@@ -43,12 +43,13 @@ class PdoPostRepository implements PostRepositoriesInterface
      */
     public function insertPost($post): array
     {
-        $this->database->request('INSERT INTO posts(title, chapo, content, author, creation_at) 
-            VALUES(:title, :chapo, :content, :author, NOW())', [
+        $this->database->request('INSERT INTO posts(title, chapo, content, author, creation_at, img) 
+            VALUES(:title, :chapo, :content, :author, NOW(), :img)', [
             ':title' => $post['title'],
             ':chapo' => $post['chapo'],
             ':content' => $post['content'],
-            ':author' => $post ['author']
+            ':author' => $post ['author'],
+            ':img' => $post['img']
         ]);
 
         $post['id'] = $this->database->lastId();
@@ -66,15 +67,24 @@ class PdoPostRepository implements PostRepositoriesInterface
         SET title = :title,
             chapo = :chapo,
             content = :content,
-            author = :author, 
+            author = :author,
+            img = :img, 
             update_at = NOW()
         WHERE id = :id', [
             ':id' => $post['id'],
             ':title' => $post['title'],
             ':chapo' => $post['chapo'],
             ':content' => $post['content'],
-            ':author' => $post['author']
+            ':author' => $post['author'],
+            ':img' => $post['img']
         ]);
+    }
+
+    public function deletePost(int $id)
+    {
+        return $this->database->request('DELETE FROM posts WHERE id = :id', [
+            ':id' => $id
+        ])->fetch();
     }
 }
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>OneUI - Admin Dashboard Template &amp; UI Framework</title>
+    <title>Administration</title>
 
     <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -192,30 +192,22 @@
                             </ul>
                         </li>
                         <li class="nav-main-heading"><span class="sidebar-mini-hide">Administration</span></li>
-
                         <li>
-                            <a class="nav-submenu" data-toggle="nav-submenu" href="/panel/posts"><i class="si si-layers"></i><span class="sidebar-mini-hide">Articles</span></a>
+                            <a class="nav-submenu" data-toggle="nav-submenu"><i class="si si-layers"></i><span class="sidebar-mini-hide">Articles</span></a>
                             <ul>
                                 <li>
                                     <a href="/panel/posts">Articles en ligne</a>
                                 </li>
                                 <li>
-                                    <a href="/panel/create">Creer un article</a>
-                                </li>
-                                <li>
-                                    <a href="/edit/post/{{ post.id }}">Modifier un article</a>
-                                </li>
-                                <li>
-                                    <a href="/delete/post/{{ post.id }}">Supprimer un article</a>
+                                    <a href="/panel/create/post">Creer un article</a>
                                 </li>
                             </ul>
                         </li>
-
                         <li>
                             <a class="nav-submenu" data-toggle="nav-submenu" href="/panel/comments"><i class="si si-fire"></i><span class="sidebar-mini-hide">Commentaires</span></a>
                             <ul>
                                 <li>
-                                    <a href="base_pages_errors.html">Commentaires à valider</a>
+                                    <a href="/panel/comment/validated">Commentaires à valider</a>
                                 </li>
                             </ul>
                         </li>
@@ -240,34 +232,20 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-header">Profile</li>
+                        <li class="dropdown-header">Administrateur</li>
                         <li>
-                            <a tabindex="-1" href="base_pages_inbox.html">
-                                <i class="si si-envelope-open pull-right"></i>
-                                <span class="badge badge-primary pull-right">3</span>Inbox
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" href="base_pages_profile.html">
-                                <i class="si si-user pull-right"></i>
-                                <span class="badge badge-success pull-right">1</span>Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a tabindex="-1" href="javascript:void(0)">
-                                <i class="si si-settings pull-right"></i>Settings
-                            </a>
+                            <p>{{ __auth.email }}</p>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Actions</li>
                         <li>
-                            <a tabindex="-1" href="base_pages_lock.html">
-                                <i class="si si-lock pull-right"></i>Lock Account
+                            <a tabindex="-1" href="/">
+                                <i class="si si-lock pull-right"></i>Blog
                             </a>
                         </li>
                         <li>
-                            <a tabindex="-1" href="base_pages_login.html">
-                                <i class="si si-logout pull-right"></i>Log out
+                            <a tabindex="-1" href="/panel">
+                                <i class="si si-logout pull-right"></i>Dashboard
                             </a>
                         </li>
                     </ul>
@@ -278,28 +256,11 @@
 
         <!-- Header Navigation Left -->
         <ul class="nav-header pull-left">
-            <li class="hidden-md hidden-lg">
-                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
-                    <i class="fa fa-navicon"></i>
-                </button>
-            </li>
+
             <li class="hidden-xs hidden-sm">
                 <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
                 <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
                     <i class="fa fa-ellipsis-v"></i>
-                </button>
-            </li>
-            <li>
-                <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
-                <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal" type="button">
-                    <i class="si si-grid"></i>
-                </button>
-            </li>
-            <li class="visible-xs">
-                <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
-                <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
-                    <i class="fa fa-search"></i>
                 </button>
             </li>
             <li class="js-header-search header-search">
@@ -317,23 +278,17 @@
 
     <!-- Main Container -->
     <main id="main-container">
-        <!-- Page Header -->
-        <div class="content bg-gray-lighter">
-            <div class="row items-push">
-                <div class="col-sm-7">
-                    <h1 class="page-heading">
-                             {{ __auth.email }}
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <!-- END Page Header -->
 
         <!-- Page Content -->
         <div class="content">
-            <h2 class="content-heading">Your content</h2>
-            <button class="btn btn-minw btn-primary" type="button">Primary</button>
-            <p>...</p>
+            {% if (__flash) %}
+                <div class="alert alert-dismissible alert-{{ __flash.type }}">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ __flash.content }}
+                </div>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
         </div>
         <!-- END Page Content -->
     </main>
@@ -351,48 +306,6 @@
     <!-- END Footer -->
 </div>
 <!-- END Page Container -->
-
-<!-- Apps Modal -->
-<!-- Opens from the button in the header -->
-<div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-sm modal-dialog modal-dialog-top">
-        <div class="modal-content">
-            <!-- Apps Block -->
-            <div class="block block-themed block-transparent">
-                <div class="block-header bg-primary-dark">
-                    <ul class="block-options">
-                        <li>
-                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
-                        </li>
-                    </ul>
-                    <h3 class="block-title">Apps</h3>
-                </div>
-                <div class="block-content">
-                    <div class="row text-center">
-                        <div class="col-xs-6">
-                            <a class="block block-rounded" href="base_pages_dashboard.html">
-                                <div class="block-content text-white bg-default">
-                                    <i class="si si-speedometer fa-2x"></i>
-                                    <div class="font-w600 push-15-t push-15">Backend</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xs-6">
-                            <a class="block block-rounded" href="bd_dashboard.html">
-                                <div class="block-content text-white bg-modern">
-                                    <i class="si si-rocket fa-2x"></i>
-                                    <div class="font-w600 push-15-t push-15">Boxed</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END Apps Block -->
-        </div>
-    </div>
-</div>
-<!-- END Apps Modal -->
 
 <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
 <script src="/assets/js/core/jquery.min.js"></script>

@@ -30,7 +30,7 @@ class AdminAction extends ActionsParams
             ]);
 
         } elseif ($request->getMethod() === 'GET') {
-            $view = $container->get(RenderInterface::class)->render('Admin/admin');
+            $view = $container->get(RenderInterface::class)->render('Admin/home');
             $response->getBody()->write($view);
         }
         return $response;

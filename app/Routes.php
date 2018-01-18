@@ -19,6 +19,11 @@ return [
         'action' => App\Actions\Posts\PostAction::class,
         'middlewares' => []
     ],
+    'comment.add' => [
+        'methods' => ['POST'],
+        'path' => '/posts/{post:[0-9]+}',
+        'action' => App\Actions\Posts\CommentAction::class,
+    ],
     'login.index' => [
         'methods' => ['GET', 'POST'],
         'path' => '/login',
@@ -52,6 +57,36 @@ return [
         'methods' => ['GET', 'POST'],
         'path' => '/panel',
         'action' => App\Actions\Admin\AdminAction::class,
+        'middlewares' => []
+    ],
+    'admin.posts.show' => [
+    'methods' => ['GET', 'POST'],
+    'path' => '/panel/posts',
+    'action' => App\Actions\Admin\AllpostsAction::class,
+    'middlewares' => []
+    ],
+    'admin.posts.update' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/edit/post/{post:[0-9]+}',
+        'action' => App\Actions\Admin\UpdatePostAction::class,
+        'middlewares' => []
+    ],
+    'admin.posts.delete' => [
+            'methods' => ['GET', 'POST'],
+            'path' => '/panel/delete/post/{post:[0-9]+}',
+            'action' => App\Actions\Admin\DeletePostAction::class,
+            'middlewares' => []
+    ],
+    'admin.posts.create' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/create/post',
+        'action' => App\Actions\Admin\CreatePostAction::class,
+        'middlewares' => []
+    ],
+    'admin.comment.validated' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/comment/validated/{post:[0-9]+}',
+        'action' => App\Actions\Admin\CommentValidatedAction::class,
         'middlewares' => []
     ]
 ];

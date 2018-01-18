@@ -35,6 +35,27 @@ class PdoUserRepository implements UserRepositoriesInterface
         return $user;
     }
 
+    /**
+     * @param $user
+     * @return StatementInterface
+     */
+    public function updateUser($user): StatementInterface
+    {
+        return $this->database->request(
+            'UPDATE users
+        SET email = :email,
+            email_token = :email_token,
+            connection_at = :connection_at,
+            rank = :rank
+        WHERE id = :userId', [
+            ':email' => $user['email'],
+            ':email_token' => $user['email_token'],
+            ':connection_at' => $user['connection_at'],
+            ':rank' => $user['rank'],
+            ':userId' => $user['id']
+        ]);
+    }
+
 
     /**
      * @param $email
@@ -62,27 +83,6 @@ class PdoUserRepository implements UserRepositoriesInterface
             ':userId' => $userId
         ])->fetch();
 
-    }
-
-    /**
-     * @param $user
-     * @return StatementInterface
-     */
-    public function updateUser($user): StatementInterface
-    {
-        return $this->database->request(
-            'UPDATE users
-        SET email = :email,
-            email_token = :email_token,
-            connection_at = :connection_at,
-            rank = :rank
-        WHERE id = :userId', [
-            ':email' => $user['email'],
-            ':email_token' => $user['email_token'],
-            ':connection_at' => $user['connection_at'],
-            ':rank' => $user['rank'],
-            ':userId' => $user['id']
-        ]);
     }
 
     public function allusers()

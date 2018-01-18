@@ -2,6 +2,7 @@
 
 namespace Romss\Render;
 
+
 class TwigRender implements RenderInterface
 {
 
@@ -12,6 +13,7 @@ class TwigRender implements RenderInterface
     {
         $this->loader = new \Twig_Loader_Filesystem($path);
         $this->twig = new \Twig_Environment($this->loader, []);
+
     }
 
     /**

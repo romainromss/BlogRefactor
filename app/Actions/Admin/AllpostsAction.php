@@ -1,20 +1,21 @@
 <?php
-namespace App\Actions\Posts;
+
+namespace App\Actions\Admin;
 
 use App\Services\PostServices;
 use DI\Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Romss\ActionsParams;
 use Romss\Render\RenderInterface;
 
-class AllPostAction
+class AllpostsAction extends ActionsParams
 {
     private $postServices;
 
-
     public function  __construct(PostServices $postServices)
     {
-       $this->postServices = $postServices;
+        $this->postServices = $postServices;
     }
 
     /**
@@ -28,9 +29,10 @@ class AllPostAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         $posts = $this->postServices->allpost();
-        $view = $container->get(RenderInterface::class)->render('Article/post', ['posts' => $posts]);
-        $response->getBody()->write($view);
+        if ($request->getMethod() === 'GET') {
+            $view = $container->get(RenderInterface::class)->render('Admin/shows', ['posts' => $posts]);
+            $response->getBody()->write($view);
+        }
         return $response;
     }
 }
-

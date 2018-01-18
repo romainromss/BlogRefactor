@@ -12,6 +12,12 @@ interface CommentRepositoriesInterface
      */
     public function all(): array;
 
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function getComment(int $id);
+
 
     /**
      * @param int $postId
