@@ -23,6 +23,7 @@ return [
         'methods' => ['POST'],
         'path' => '/posts/{post:[0-9]+}',
         'action' => App\Actions\Posts\CommentAction::class,
+        'middlewares' => []
     ],
     'login.index' => [
         'methods' => ['GET', 'POST'],
@@ -52,6 +53,7 @@ return [
         'methods' =>['GET'],
         'path' => '/verify/{id:[0-9]+}-{token:[a-z\-0-9]+}',
         'action' => App\Actions\Auth\VerifyMailAction::class,
+        'middlewares' => []
     ],
     'admin.index' => [
         'methods' => ['GET', 'POST'],
@@ -60,10 +62,10 @@ return [
         'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.show' => [
-    'methods' => ['GET', 'POST'],
-    'path' => '/panel/posts',
-    'action' => App\Actions\Admin\AllpostsAction::class,
-    'middlewares' => [\App\Middlewares\RoleMiddleware::class]
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/posts',
+        'action' => App\Actions\Admin\AllpostsAction::class,
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.update' => [
         'methods' => ['GET', 'POST'],
@@ -72,10 +74,10 @@ return [
         'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.delete' => [
-            'methods' => ['GET', 'POST'],
-            'path' => '/panel/delete/post/{post:[0-9]+}',
-            'action' => App\Actions\Admin\DeletePostAction::class,
-            'middlewares' => [\App\Middlewares\RoleMiddleware::class]
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/delete/post/{post:[0-9]+}',
+        'action' => App\Actions\Admin\DeletePostAction::class,
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.create' => [
         'methods' => ['GET', 'POST'],

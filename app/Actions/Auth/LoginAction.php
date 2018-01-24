@@ -49,7 +49,7 @@ class LoginAction
 
         $user = $this->userServices->getUserByEmail($email);
 
-        if ($_SESSION['auth']['email'] === $email) {
+        if (!empty($_SESSION['auth']) && $_SESSION['auth']['email'] === $email) {
             $this->setFlash('warning', 'Vous êtes déjà connecté !');
             return new Response(301, [
                 'Location' => '/'
