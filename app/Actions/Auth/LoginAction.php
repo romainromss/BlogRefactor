@@ -7,16 +7,18 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
+use Romss\Tokenable;
 
-class LoginAction extends ActionsParams
+class LoginAction
 {
+    use Tokenable, Flashable;
+
     /**
      * @var UserServices
      */
     private $userServices;
-
 
     public function __construct(UserServices $userServices)
     {
@@ -56,7 +58,7 @@ class LoginAction extends ActionsParams
 
         if ($user && password_verify($email . '#-$' . $password, $user['password']) && $user['email_token'] === null) {
             if (!empty($remember)) {
-                $token = $this->generateToken($user);
+                $token = $this->generateToken();
                 setcookie('remember', $token, time() + 3600 * 24 * 7, '/', null, false, true);
             }
 

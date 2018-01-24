@@ -28,7 +28,7 @@ class PdoCommentRepository implements CommentRepositoriesInterface
 
     public function getComment(int $id)
     {
-        return $this->database->request('SELECT * FROM comments WHERE id = :id', [
+        return $this->database->request('SELECT * FROM comments  WHERE id = :id', [
             ':id' => $id
         ])->fetch();
     }
@@ -41,7 +41,7 @@ class PdoCommentRepository implements CommentRepositoriesInterface
     public function getCommentById(int $postId, bool $checkValidated): array
     {
         return $this->database->request('
-            SELECT * FROM comments WHERE post_id = :postId AND validated = :check', [
+            SELECT * FROM comments  WHERE post_id = :postId AND validated = :check ORDER BY comment_at DESC', [
 
             ':postId' => $postId,
             ':check' => intval($checkValidated)

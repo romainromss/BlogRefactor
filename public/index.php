@@ -14,3 +14,6 @@ try {
 } catch (Exception $exception) {
     var_dump($exception->getMessage());
 }
+var_dump($_SESSION);
+
+

@@ -7,8 +7,11 @@ use DI\Container;
 use DI\ContainerBuilder;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ServerRequest;
+use Odan\Slim\Csrf\CsrfMiddleware;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Romss\Render\RenderInterface;
+use Slim\Csrf\Guard;
 use Zend\Expressive\Router\FastRouteRouter;
 use Zend\Expressive\Router\Route;
 
@@ -67,6 +70,10 @@ class Application
         $this->initRouter();
     }
 
+    /**
+     * @throws \DI\DependencyException
+     * @throws \DI\NotFoundException
+     */
     public function run()
     {
         $this->request = ServerRequest::fromGlobals();
@@ -98,6 +105,9 @@ class Application
             }
 
             send_response($result);
+        } else {
+            $rendering = $this->container->get(RenderInterface::class)->render('Errors/404');
+            send_response(new Response(404, [], $rendering));
         }
     }
 

@@ -7,13 +7,15 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
 
-class ContactAction extends ActionsParams
+class ContactAction
 {
+    use Flashable;
     /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response

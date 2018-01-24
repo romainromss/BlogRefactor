@@ -20,6 +20,7 @@ class UserServices
         return $userEmail;
     }
 
+
     public function getUserById($userId)
     {
         $idUser = $this->userRepositories->getUserById($userId);

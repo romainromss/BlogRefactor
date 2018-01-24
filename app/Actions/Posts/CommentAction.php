@@ -11,10 +11,12 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
 
-class CommentAction extends ActionsParams
+class CommentAction
 {
+    use Flashable;
     /**
      * @var CommentServices
      */
@@ -44,6 +46,7 @@ class CommentAction extends ActionsParams
         $comment = $_POST['comment'] ?? null;
 
             $path =  '/posts/'.$posts['id'];
+
 
         $authorLength = strlen($author);
         if ($authorLength < 4 ) {

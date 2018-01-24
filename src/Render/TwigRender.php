@@ -5,8 +5,7 @@ namespace Romss\Render;
 
 class TwigRender implements RenderInterface
 {
-
-    private  $twig;
+    private $twig;
     private $loader;
 
     public function __construct(string $path)
@@ -45,6 +44,7 @@ class TwigRender implements RenderInterface
 
         $params['__session'] = $_SESSION;
         $params['__auth'] = $_SESSION['auth'] ?? null;
+        $params['__csrf'] = $_SESSION['__csrf'] ?? null;
         $params['__page'] = $view.".{$type}.twig";
 
      return $this->twig->render($view.".{$type}.twig", $params);

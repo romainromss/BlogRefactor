@@ -8,6 +8,8 @@
     <div class="container-fluid">
         <div class="row">
             <form action="/register" method="post" class="col-lg-6 offset-lg-3">
+                <input type="hidden" name="_token" id="csrf-token" value="" />
+
                 <!-- L'adresse mail -->
                 <div class="form-group">
                     <label for="email">Votre adresse mail :</label>

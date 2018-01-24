@@ -11,6 +11,8 @@
     <div class="container-fluid">
         <div class="row">
             <form action="/login" method="post" class="col-lg-6 offset-lg-3">
+                <input type="hidden" name="__csrf" id="__csrf" value="{{ __csrf }}" />
+
                 <!-- Le pseudo -->
                 <div class="form-group">
                     <label for="name">adresse mail :</label>

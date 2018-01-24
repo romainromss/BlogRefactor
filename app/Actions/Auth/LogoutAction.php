@@ -6,10 +6,13 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
+use Romss\Flashable;
 
-class LogoutAction extends ActionsParams
+
+class LogoutAction
 {
+    use Flashable;
+
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
        unset($_SESSION['auth']);

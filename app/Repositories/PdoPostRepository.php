@@ -23,7 +23,7 @@ class PdoPostRepository implements PostRepositoriesInterface
      */
     public function all(): array
     {
-        return $this->database->request('SELECT * FROM posts')->fetchAll();
+        return $this->database->request('SELECT * FROM posts ORDER BY creation_at DESC')->fetchAll();
     }
 
     /**
@@ -32,7 +32,7 @@ class PdoPostRepository implements PostRepositoriesInterface
      */
     public function getByPostId(int $id)
     {
-        return $this->database->request('SELECT * FROM posts WHERE id = :id', [
+        return $this->database->request('SELECT * FROM posts  WHERE id = :id', [
             ':id' => $id
         ])->fetch();
     }

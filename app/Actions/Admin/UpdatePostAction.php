@@ -8,11 +8,13 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
 
 
-class UpdatePostAction extends ActionsParams
+class UpdatePostAction
 {
+    use Flashable;
     /**
      * @var PostServices $postServices
      */
@@ -51,7 +53,7 @@ class UpdatePostAction extends ActionsParams
             return $response;
         }
 
-        $img = $_FILES['img']?? null;
+
         $title = $_POST['title'] ?? null;
         $chapo = $_POST['chapo'] ?? null;
         $content = $_POST['content'] ?? null;
@@ -69,7 +71,7 @@ class UpdatePostAction extends ActionsParams
 
         $chapoLength = strlen($chapo);
         if ($chapoLength < 50 ) {
-            $this->setFlash("danger", "Votre nom doit contenir au moins 50 caractères ou ne doit pas être vide");
+            $this->setFlash("danger", "Le chapoô doit contenir au moins 50 caractères ou ne doit pas être vide");
             return new Response(301, [
                 'Location' => $path
             ]);
@@ -94,7 +96,7 @@ class UpdatePostAction extends ActionsParams
         $imgName = $post['img'];
         if (isset($_FILES)){
             $imgLastName = $imgName;
-            $img = $_FILES['img'];
+            $img = $_FILES['img']?? null;
             $ext = strtolower(substr($img['name'], strrpos($img['name'], '.') + 1));
             $extAllow = ['jpg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){

@@ -8,10 +8,13 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
 
-class CommentValidatedAction extends ActionsParams
+class CommentValidatedAction
 {
+    use Flashable;
+
     /**
      * @var CommentServices
      */

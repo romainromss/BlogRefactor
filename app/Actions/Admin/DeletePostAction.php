@@ -8,11 +8,13 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
 
 
-class DeletePostAction extends ActionsParams
+class DeletePostAction
 {
+    use Flashable;
     /**
      * @var PostServices $postServices
      */

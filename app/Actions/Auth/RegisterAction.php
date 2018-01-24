@@ -8,15 +8,18 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
+use Romss\Flashable;
 use Romss\Render\RenderInterface;
+use Romss\Tokenable;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
 
 
-class RegisterAction extends ActionsParams
+class RegisterAction
 {
+    use Tokenable, Flashable;
+
     /**
      * @var UserServices
      */

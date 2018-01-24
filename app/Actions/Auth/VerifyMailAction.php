@@ -9,11 +9,12 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
+use Romss\Flashable;
 
 
-class VerifyMailAction extends ActionsParams
+class VerifyMailAction
 {
+    use Flashable;
     /**
      * @var UserServices
      */

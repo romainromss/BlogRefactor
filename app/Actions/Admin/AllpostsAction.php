@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Romss\ActionsParams;
 use Romss\Render\RenderInterface;
 
-class AllpostsAction extends ActionsParams
+class AllpostsAction
 {
     private $postServices;
 

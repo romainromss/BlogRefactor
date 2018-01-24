@@ -10,6 +10,8 @@
     <div class="container-fluid">
         <div class="row">
             <form action="/contact" method="post" class="col-lg-6 offset-lg-3">
+                <input type="hidden" name="_token" id="csrf-token" value="" />
+
                 <div class="row">
                     <div class="form-group col-sm-6">
                         <label for="name" class="h4">Nom</label>

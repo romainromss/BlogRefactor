@@ -56,7 +56,6 @@ class PdoUserRepository implements UserRepositoriesInterface
         ]);
     }
 
-
     /**
      * @param $email
      * @return array|string

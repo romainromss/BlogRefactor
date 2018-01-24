@@ -57,37 +57,37 @@ return [
         'methods' => ['GET', 'POST'],
         'path' => '/panel',
         'action' => App\Actions\Admin\AdminAction::class,
-        'middlewares' => []
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.show' => [
     'methods' => ['GET', 'POST'],
     'path' => '/panel/posts',
     'action' => App\Actions\Admin\AllpostsAction::class,
-    'middlewares' => []
+    'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.update' => [
         'methods' => ['GET', 'POST'],
         'path' => '/panel/edit/post/{post:[0-9]+}',
         'action' => App\Actions\Admin\UpdatePostAction::class,
-        'middlewares' => []
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.delete' => [
             'methods' => ['GET', 'POST'],
             'path' => '/panel/delete/post/{post:[0-9]+}',
             'action' => App\Actions\Admin\DeletePostAction::class,
-            'middlewares' => []
+            'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.posts.create' => [
         'methods' => ['GET', 'POST'],
         'path' => '/panel/create/post',
         'action' => App\Actions\Admin\CreatePostAction::class,
-        'middlewares' => []
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
     'admin.comment.validated' => [
         'methods' => ['GET', 'POST'],
         'path' => '/panel/comment/validated/{post:[0-9]+}',
         'action' => App\Actions\Admin\CommentValidatedAction::class,
-        'middlewares' => []
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ]
 ];
 
