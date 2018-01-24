@@ -26,15 +26,19 @@ class CsrfMiddleware
     {
         // Validate POST, PUT, DELETE, PATCH requests
         $csrf = $this->generateToken();
-        if ($request->getMethod() === ['POST' , 'PUT', 'DELETE', 'PATCH']) {
+        if (in_array($request->getMethod(), ['POST' , 'PUT', 'DELETE', 'PATCH'])) {
             $checked = !empty($_SESSION['__csrf']) && !empty($_POST['__csrf']) &&
                 ($_SESSION['__csrf'] === $_POST['__csrf']);
+
             $_SESSION['__csrf'] = $csrf;
+
             if ($checked) {
                 return $next($request, $response);
             }
+
+            $this->setFlash('danger', 'Jeton invalide, merci de rafraichir et de réessayer');
             return new Response(301, [
-                'Location' => '/yolo'
+                'Location' => $request->getUri()->getPath()
             ]);
         }
         $_SESSION['__csrf'] = $csrf;
