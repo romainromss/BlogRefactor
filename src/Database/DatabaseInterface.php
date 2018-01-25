@@ -3,7 +3,7 @@
 namespace Romss\Database;
 
 /**
- * Interface IDatabase
+ * DatabaseInterface
  *
  * @package Database
  */

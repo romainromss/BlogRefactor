@@ -8,12 +8,13 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Render\RenderInterface;
 use Romss\Tokenable;
 
 class LoginAction
 {
-    use Tokenable, Flashable;
+    use Tokenable, Flashable, GetField;
 
     /**
      * @var UserServices
@@ -24,6 +25,7 @@ class LoginAction
     {
         $this->userServices = $userServices;
     }
+
 
     /**
      * @param ServerRequestInterface $request
@@ -42,9 +44,9 @@ class LoginAction
             return $response;
         }
 
-        $email = $_POST['email'] ?? null;
-        $password = $_POST['pass'] ?? null;
-        $remember = $_POST['remember'] ?? null;
+        $email = $this->getField('email');
+        $password = $this->getField('pass');
+        $remember = $this->getField('remember');
 
 
         $user = $this->userServices->getUserByEmail($email);

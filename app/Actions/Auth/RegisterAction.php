@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Render\RenderInterface;
 use Romss\Tokenable;
 use Swift_Mailer;
@@ -18,7 +19,7 @@ use Swift_SmtpTransport;
 
 class RegisterAction
 {
-    use Tokenable, Flashable;
+    use Tokenable, Flashable, GetField;
 
     /**
      * @var UserServices
@@ -29,6 +30,7 @@ class RegisterAction
     {
         $this->userServices = $userServices;
     }
+
 
 
     /**
@@ -47,9 +49,9 @@ class RegisterAction
             return $response;
         }
 
-        $email = $_POST['email'];
-        $pass = $_POST['pass'];
-        $pass_confirm = $_POST['pass_confirm'];
+        $email = $this->getField('email');
+        $pass = $this->getField('pass');
+        $pass_confirm = $this->getField('pass_confirm');
 
         $user = $this->userServices->getUserByEmail($email);
 
@@ -113,8 +115,6 @@ class RegisterAction
         $result = $mailer->send($message);
         if ($result) {
             $this->setFlash('success', 'Un email vous a été envoyé pour confirmer votre compte');
-        } else {
-            $this->setFlash('warning', 'Une erreur est survenue lors de l\'envoie de la confirmation. Merci de contacter le SAV !');
         }
 
         return new Response(301, [

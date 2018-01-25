@@ -9,11 +9,12 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 
 
 class CommentAction
 {
-    use Flashable;
+    use Flashable, GetField;
     /**
      * @var CommentServices
      */
@@ -39,8 +40,8 @@ class CommentAction
         $posts = $this->postServices->getPostWithId($request->getAttribute('post', 0));
         $comments = $this->commentServices->getCommentId($request->getAttribute('post', 0),true);
 
-        $author = $_POST['author'] ?? null;
-        $comment = $_POST['comment'] ?? null;
+        $author = $this->getField('author');
+        $comment = $this->getField('comment');
 
             $path =  '/posts/'.$posts['id'];
 

@@ -7,6 +7,7 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Render\RenderInterface;
 use Swift_Mailer;
 use Swift_Message;
@@ -14,7 +15,7 @@ use Swift_SmtpTransport;
 
 class ContactAction
 {
-    use Flashable;
+    use Flashable, GetField;
     /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
@@ -32,9 +33,9 @@ class ContactAction
             return $response;
         }
 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $content = $_POST['content'];
+        $name = $this->getField('name');
+        $email = $this->getField('email');
+        $content = $this->getField('content');
 
         if (empty(filter_var($email, FILTER_VALIDATE_EMAIL))){
             $this->setFlash("danger", "Votre adresse est vide");
@@ -75,8 +76,6 @@ class ContactAction
         $result = $mailer->send($message);
         if ($result) {
             $this->setFlash('success', 'Merci pour votre message nous vous répondrons dans les meilleures délais');
-        } else {
-            $this->setFlash('danger', 'Votre email n\'a pu être envoyé');
         }
         return new Response(301,[
             'Location' => '/'

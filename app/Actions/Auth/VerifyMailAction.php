@@ -27,10 +27,10 @@ class VerifyMailAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
-        $id = $request->getAttribute('id');
+        $mailid = $request->getAttribute('id');
         $token = $request->getAttribute('token');
 
-        $user = $this->userServices->getUserById($id);
+        $user = $this->userServices->getUserById($mailid);
 
         if ($user === false || $user['email_token'] != $token){
             $this->setFlash("danger", "Votre lien d'activation n'est pas valide");
