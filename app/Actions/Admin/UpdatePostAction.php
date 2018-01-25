@@ -94,6 +94,7 @@ class UpdatePostAction
         }
 
         $imgName = $post['img'];
+
         if (isset($_FILES)){
             $imgLastName = $imgName;
             $img = $_FILES['img']?? null;
@@ -134,6 +135,3 @@ class UpdatePostAction
         ]);
     }
 }
-
-
-
