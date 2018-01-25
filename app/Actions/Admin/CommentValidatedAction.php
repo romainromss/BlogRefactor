@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Actions\Admin;
 
 use App\Services\CommentServices;
@@ -8,23 +7,21 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Render\RenderInterface;
+
 
 class CommentValidatedAction
 {
-    use Flashable;
-
+    use Flashable, GetField;
     /**
      * @var CommentServices
      */
     private $commentServices;
-
     /**
      * @var PostServices
      */
     private $postServices;
-
-
     /**
      * CommentValidatedAction constructor.
      * @param CommentServices $commentServices
@@ -35,7 +32,6 @@ class CommentValidatedAction
         $this->commentServices = $commentServices;
         $this->postServices = $postServices;
     }
-
     /**
      * @param ServerRequestInterface $request
      * @param Response $response
@@ -54,10 +50,8 @@ class CommentValidatedAction
             $response->getBody()->write($view);
             return $response;
         }
-
-        $commentId = $_POST['comment_id'] ?? 0;
+        $commentId = $this->getField('comment_id');
         $comment = $this->commentServices->getComment($commentId);
-
         if ($comment){
             $comment['validated'] = 1;
             $this->commentServices->updateComment($comment);
