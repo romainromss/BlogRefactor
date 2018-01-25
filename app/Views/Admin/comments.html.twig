@@ -5,7 +5,7 @@
     {% for comment in comments %}
         <form action="/panel/comment/validated/{{ comment.post_id }}" method="post" class="col-lg-8 offset-lg-2" enctype="multipart/form-data">
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
-            <input type="hidden" name="_token" id="csrf-token" value="" />
+           <input type="hidden" name="__csrf" id="__csrf" value="{{ __csrf }}" />
             <div id="com" class="card">
                 <div class="card-block">
                     <h4 id="date" class="card-text">Par {{ comment.author }}</h4>
@@ -16,5 +16,4 @@
             </div>
         </form>
     {% endfor %}
-    </div>
 {% endblock %}
