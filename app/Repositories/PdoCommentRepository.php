@@ -7,7 +7,6 @@ use Romss\Database\StatementInterface;
 
 class PdoCommentRepository implements CommentRepositoriesInterface
 {
-
     /**
      * @var DatabaseInterface
      */
@@ -86,4 +85,3 @@ class PdoCommentRepository implements CommentRepositoriesInterface
         ]);
     }
 }
-

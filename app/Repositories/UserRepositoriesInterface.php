@@ -34,4 +34,3 @@ interface UserRepositoriesInterface
 
     public function allusers();
 }
-

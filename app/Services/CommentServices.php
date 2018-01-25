@@ -48,5 +48,3 @@ class CommentServices
         return $comment;
     }
 }
-
-

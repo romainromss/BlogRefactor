@@ -27,5 +27,3 @@ class IndexAction
         return $response;
     }
 }
-
-

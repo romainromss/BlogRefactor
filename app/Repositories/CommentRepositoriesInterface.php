@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use Romss\Database\StatementInterface;
 
 interface CommentRepositoriesInterface
@@ -38,4 +37,3 @@ interface CommentRepositoriesInterface
      */
     public function updateComment($comment): StatementInterface;
 }
-

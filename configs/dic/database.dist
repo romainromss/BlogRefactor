@@ -30,4 +30,3 @@ return [
         di_get('db.options')
     )
 ];
-

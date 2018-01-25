@@ -92,5 +92,3 @@ return [
         'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ]
 ];
-
-

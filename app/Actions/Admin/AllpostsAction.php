@@ -6,7 +6,6 @@ use App\Services\PostServices;
 use DI\Container;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
 use Romss\Render\RenderInterface;
 
 class AllpostsAction
@@ -36,3 +35,4 @@ class AllpostsAction
         return $response;
     }
 }
+

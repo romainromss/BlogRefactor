@@ -3,4 +3,3 @@
 return [
     \App\Middlewares\CsrfMiddleware::class
 ];
-

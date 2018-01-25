@@ -3,7 +3,6 @@
 namespace App\Middlewares;
 
 use DI\Container;
-
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
@@ -14,7 +13,6 @@ class CsrfMiddleware
 {
     use Tokenable, Flashable;
 
-
     /**
      * @param ServerRequestInterface $request
      * @param Response $response
@@ -24,7 +22,6 @@ class CsrfMiddleware
      */
     public function __invoke(ServerRequestInterface $request, Response $response, Container $container,  $next)
     {
-        // Validate POST, PUT, DELETE, PATCH requests
         $csrf = $this->generateToken();
 
         if (in_array($request->getMethod(), ['POST' , 'PUT', 'DELETE', 'PATCH'])) {

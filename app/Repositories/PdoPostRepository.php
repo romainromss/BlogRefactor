@@ -7,7 +7,6 @@ use Romss\Database\StatementInterface;
 
 class PdoPostRepository implements PostRepositoriesInterface
 {
-
     /**
      * @var DatabaseInterface
      */
@@ -87,5 +86,3 @@ class PdoPostRepository implements PostRepositoriesInterface
         ])->fetch();
     }
 }
-
-

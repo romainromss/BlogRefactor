@@ -45,4 +45,3 @@ class PostAction
             return $response;
     }
 }
-

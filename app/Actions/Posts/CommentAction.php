@@ -3,16 +3,13 @@
 namespace  App\Actions\Posts;
 
 use App\Services\CommentServices;
-
 use App\Services\PostServices;
 use DI\Container;
-
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Romss\ActionsParams;
 use Romss\Flashable;
-use Romss\Render\RenderInterface;
+
 
 class CommentAction
 {
@@ -81,8 +78,4 @@ class CommentAction
             ]);
 
     }
-
-
-
 }
-

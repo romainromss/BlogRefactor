@@ -33,4 +33,3 @@ class AllPostAction
         return $response;
     }
 }
-

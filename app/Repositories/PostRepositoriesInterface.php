@@ -31,4 +31,3 @@ interface PostRepositoriesInterface
 
     public function deletePost(int $id);
 }
-

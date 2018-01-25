@@ -18,4 +18,3 @@ return [
     CommentRepositoriesInterface::class => di_object(PdoCommentRepository::class),
     UserRepositoriesInterface::class => di_object(PdoUserRepository::class)
 ];
-

@@ -44,4 +44,3 @@ class UserServices
         return $users;
     }
 }
-
