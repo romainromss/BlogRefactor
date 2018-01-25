@@ -8,12 +8,13 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Render\RenderInterface;
 
 
 class UpdatePostAction
 {
-    use Flashable;
+    use Flashable, GetField;
     /**
      * @var PostServices $postServices
      */
@@ -53,10 +54,10 @@ class UpdatePostAction
         }
 
 
-        $title = $_POST['title'] ?? null;
-        $chapo = $_POST['chapo'] ?? null;
-        $content = $_POST['content'] ?? null;
-        $author = $_POST['author'] ?? null;
+        $title = $this->getField('title');
+        $chapo = $this->getField('chapo');
+        $content = $this->getField('content');
+        $author = $this->getField('author');
 
         $path = '/panel/edit/post/'.$post['id'];
 
