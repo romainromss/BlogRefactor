@@ -6,12 +6,13 @@ use DI\Container;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Romss\Flashable;
+use Romss\GetField;
 use Romss\Tokenable;
 
 
 class CsrfMiddleware
 {
-    use Tokenable, Flashable;
+    use Tokenable, Flashable, GetField;
 
     /**
      * @param ServerRequestInterface $request
@@ -22,13 +23,13 @@ class CsrfMiddleware
      */
     public function __invoke(ServerRequestInterface $request, Response $response, Container $container,  $next)
     {
-        $csrf = $this->generateToken();
+        $this->generateToken();
 
         if (in_array($request->getMethod(), ['POST' , 'PUT', 'DELETE', 'PATCH'])) {
-            $checked = !empty($_SESSION['__csrf']) && !empty($_POST['__csrf']) &&
-                ($_SESSION['__csrf'] === $_POST['__csrf']);
+            $checked = !empty($this->getSession('__csrf')) && !empty($this->getField('__csrf')) &&
+                ($this->getSession('__csrf') === $this->getField('__csrf'));
 
-            $_SESSION['__csrf'] = $csrf;
+           $this->getSession('__csrf');
 
             if ($checked) {
                 return $next($request, $response);
@@ -40,7 +41,7 @@ class CsrfMiddleware
 
             ]);
         }
-        $_SESSION['__csrf'] = $csrf;
+       $this->getSession('__csrf');
         return $next($request, $response);
     }
 }
