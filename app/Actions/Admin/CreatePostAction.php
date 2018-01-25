@@ -94,8 +94,8 @@ class CreatePostAction
             'author' => $author
         ]);
 
-        if (isset($_FILES)){
-            $img = $_FILES['img']?? null;
+        if ($request->getUploadedFiles()){
+            $img = $this->getFiles('img')?? null;
             $ext = strtolower(substr($img['name'], strrpos($img['name'], '.') + 1));
             $extAllow = ['jpg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){
@@ -115,8 +115,10 @@ class CreatePostAction
 
         if ($createPost){
             $this->setFlash('success','Votre article a bien été crée');
-        } else {
-            $this->setFlash('warning','Un problème est survenue');
+        }
+
+        if (!isset($createPost) || !empty($createPost)){
+            $this->setFlash('warning', 'Un problème est survenue');
         }
         return new Response(301, [
             'Location' => '/panel/posts'

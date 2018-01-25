@@ -95,9 +95,9 @@ class UpdatePostAction
 
         $imgName = $post['img'];
 
-        if (isset($_FILES)){
+        if ($request->getUploadedFiles()){
             $imgLastName = $imgName;
-            $img = $_FILES['img']?? null;
+            $img = $this->getFiles('img')?? null;
             $ext = strtolower(substr($img['name'], strrpos($img['name'], '.') + 1));
             $extAllow = ['jpg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){
@@ -127,7 +127,8 @@ class UpdatePostAction
 
         if ($updatePost){
             $this->setFlash('success','Votre article a bien été modifié');
-        } else {
+        }
+        if (!isset($updatePost) || !empty($updatePost)){
             $this->setFlash('warning','Un problème est survenue');
         }
         return new Response(301, [

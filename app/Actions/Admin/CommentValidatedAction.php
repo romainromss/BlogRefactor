@@ -57,9 +57,12 @@ class CommentValidatedAction
             $this->commentServices->updateComment($comment);
 
             $this->setFlash('success','Votre commentaire a bien été validé');
-        }else {
+        }
+
+        if (!isset($comment) || !empty($comment)){
             $this->setFlash('warning', 'Un problème est survenue');
         }
+
         return new Response(301, [
             'Location' => '/panel/comment/validated/'.$posts['id']
         ]);

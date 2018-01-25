@@ -51,9 +51,12 @@ class DeletePostAction
                     }
 
             $this->setFlash('success','Votre article a bien été supprimé');
-        }else {
+        }
+
+        if (!isset($post['id']) || !empty($post['id'])){
             $this->setFlash('warning', 'Un problème est survenue');
         }
+
         return new Response(301, [
             'Location' => '/panel/posts'
         ]);
