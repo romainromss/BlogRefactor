@@ -8,5 +8,8 @@ trait GetField
         return $_POST[$field] ?? null;
     }
 
-
+    protected function  getSession($session)
+    {
+      return $_SESSION[$session] ?? null;
+    }
 }
