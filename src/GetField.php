@@ -7,4 +7,6 @@ trait GetField
     {
         return $_POST[$field] ?? null;
     }
+
+
 }
