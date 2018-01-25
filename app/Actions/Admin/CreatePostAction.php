@@ -101,7 +101,7 @@ class CreatePostAction
             if (in_array($ext, $extAllow)){
                 $imgName = time().'_'.$createPost['id'].'.'.$ext;
                 $createPost['img'] = $imgName;
-                $pathImage = realpath(__DIR__.'/../../../public/img/').'/';
+                $pathImage = realpath(__DIR__ . '/../../../public/upload/').'/';
                 move_uploaded_file($img['tmp_name'], $pathImage.$imgName);
 
                 $this->postServices->updatePost($createPost);

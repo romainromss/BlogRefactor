@@ -101,7 +101,7 @@ class UpdatePostAction
             $extAllow = ['jpg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){
                 $imgName = time().'_'.$post['id'].'.'.$ext;
-                $pathImage = realpath(__DIR__.'/../../../public/img/').'/';
+                $pathImage = realpath(__DIR__ . '/../../../public/upload').'/';
                 if (file_exists($pathImage.$imgLastName)) {
                     unlink($pathImage.$imgLastName);
                 }

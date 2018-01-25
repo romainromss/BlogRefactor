@@ -45,7 +45,7 @@ class DeletePostAction
         if (isset($post['id'])){
             $this->postServices->deletePost($post['id']);
             $imgName = $post['img'];
-                    $pathImage = realpath(__DIR__.'/../../../public/img/').'/';
+                    $pathImage = realpath(__DIR__ . '/../../../public/upload/').'/';
                     if (file_exists($pathImage.$imgName)) {
                         unlink($pathImage.$imgName);
                     }
