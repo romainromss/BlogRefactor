@@ -71,12 +71,14 @@ class CommentAction
 
         if ($addComment){
             $this->setFlash('success','Votre commentaire est en cours de modération');
-        } else {
-            $this->setFlash('warning','Un problème est survenue');
         }
-            return new Response(301, [
-                'Location' => $path
-            ]);
+
+        if (!isset($addComment) || !empty($addComment)){
+        $this->setFlash('warning','Un problème est survenue');
+        }
+        return new Response(301, [
+            'Location' => $path
+        ]);
 
     }
 }

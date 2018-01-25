@@ -20,8 +20,7 @@ class RoleMiddleware
              return new Response(301, [
                  'Location' => '/'
              ]);
-         } else {
-             return $next($request, $response);
          }
+             return $next($request, $response);
     }
 }
