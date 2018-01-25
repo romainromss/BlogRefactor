@@ -1,13 +1,11 @@
 <?php
 namespace Romss;
 
-
 trait GetField
 {
     protected function getField($field)
     {
-        if (!empty($_POST) && isset($_POST) )
-        return $_POST[$field];
+        return $_POST[$field] ?? null;
     }
 
     protected function  getSession($session)
