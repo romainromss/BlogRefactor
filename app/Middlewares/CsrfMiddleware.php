@@ -23,13 +23,13 @@ class CsrfMiddleware
      */
     public function __invoke(ServerRequestInterface $request, Response $response, Container $container,  $next)
     {
-        $this->generateToken();
+        $csrf = $this->generateToken();
 
         if (in_array($request->getMethod(), ['POST' , 'PUT', 'DELETE', 'PATCH'])) {
-            $checked = !empty($this->getSession('__csrf')) && !empty($this->getField('__csrf')) &&
-                ($this->getSession('__csrf') === $this->getField('__csrf'));
+            $checked = !empty($_SESSION['__csrf']) && !empty($this->getField('__csrf')) &&
+                ($_SESSION['__csrf'] === $this->getField('__csrf'));
 
-           $this->getSession('__csrf');
+            $_SESSION['__csrf'] = $csrf;
 
             if ($checked) {
                 return $next($request, $response);
@@ -41,7 +41,7 @@ class CsrfMiddleware
 
             ]);
         }
-       $this->getSession('__csrf');
+        $_SESSION['__csrf'] = $csrf;
         return $next($request, $response);
     }
 }
