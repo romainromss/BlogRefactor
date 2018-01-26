@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
-  `chapo` longtext DEFAULT 'NULL',
+  `chapo` longtext DEFAULT NULL,
   `content` longtext DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   `creation_at` datetime DEFAULT NULL,
