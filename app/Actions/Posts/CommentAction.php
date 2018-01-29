@@ -71,9 +71,7 @@ class CommentAction
 
         if ($addComment){
             $this->setFlash('success','Votre commentaire est en cours de modération');
-        }
-
-        if (!isset($addComment) || !empty($addComment)){
+        }else{
         $this->setFlash('warning','Un problème est survenue');
         }
         return new Response(301, [

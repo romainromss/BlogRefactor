@@ -51,9 +51,7 @@ class DeletePostAction
                     }
 
             $this->setFlash('success','Votre article a bien été supprimé');
-        }
-
-        if (!isset($post['id']) || !empty($post['id'])){
+        }else{
             $this->setFlash('warning', 'Un problème est survenue');
         }
 

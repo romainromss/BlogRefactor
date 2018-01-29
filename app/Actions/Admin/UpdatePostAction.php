@@ -127,8 +127,7 @@ class UpdatePostAction
 
         if ($updatePost){
             $this->setFlash('success','Votre article a bien été modifié');
-        }
-        if (!isset($updatePost) || !empty($updatePost)){
+        }else{
             $this->setFlash('warning','Un problème est survenue');
         }
         return new Response(301, [

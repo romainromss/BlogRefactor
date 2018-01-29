@@ -57,9 +57,7 @@ class CommentValidatedAction
             $this->commentServices->updateComment($comment);
 
             $this->setFlash('success','Votre commentaire a bien été validé');
-        }
-
-        if (!isset($comment) || !empty($comment)){
+        }else{
             $this->setFlash('warning', 'Un problème est survenue');
         }
 

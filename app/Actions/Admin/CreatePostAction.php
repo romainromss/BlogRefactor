@@ -115,9 +115,7 @@ class CreatePostAction
 
         if ($createPost){
             $this->setFlash('success','Votre article a bien été crée');
-        }
-
-        if (!isset($createPost) || !empty($createPost)){
+        }else{
             $this->setFlash('warning', 'Un problème est survenue');
         }
         return new Response(301, [
