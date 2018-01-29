@@ -99,7 +99,7 @@ class UpdatePostAction
             $imgLastName = $imgName;
             $img = $this->getFiles('img')?? null;
             $ext = strtolower(substr($img['name'], strrpos($img['name'], '.') + 1));
-            $extAllow = ['jpg', 'gif', 'png'];
+            $extAllow = ['jpg','jpeg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){
                 $imgName = time().'_'.$post['id'].'.'.$ext;
                 $pathImage = realpath(__DIR__ . '/../../../public/upload').'/';

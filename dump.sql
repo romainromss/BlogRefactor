@@ -29,9 +29,7 @@ CREATE TABLE `comments` (
   `comment` text DEFAULT NULL,
   `comment_at` datetime DEFAULT NULL,
   `validated` tinyint(3) unsigned NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `post_id` (`post_id`),
-  CONSTRAINT `fk_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
