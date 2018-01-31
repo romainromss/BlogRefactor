@@ -7,7 +7,6 @@ use Romss\Database\StatementInterface;
 interface UserRepositoriesInterface
 {
     /**
-
      * @param $user
      * @return array
      */
@@ -25,12 +24,16 @@ interface UserRepositoriesInterface
      */
     public function getUserById($userId);
 
+    public function getRank(int $rankAdmin);
+
     /**
      * @param $user
      * @return StatementInterface
      */
     public function updateUser($user): StatementInterface;
 
-
+    /**
+     * @return mixed
+     */
     public function allusers();
 }

@@ -81,7 +81,15 @@ class PdoUserRepository implements UserRepositoriesInterface
         LIMIT 0, 1' ,[
             ':userId' => $userId
         ])->fetch();
+    }
 
+    public function getRank(int $rankAdmin)
+    {
+        return $this->database->request('
+            SELECT * FROM blog.users  WHERE rank = :rankAdmin', [
+
+            ':rankAdmin' => intval($rankAdmin)
+        ])->fetchAll();
     }
 
     public function allusers()
