@@ -119,7 +119,7 @@ class CreatePostAction
             $this->setFlash('warning', 'Un problème est survenue');
         }
         return new Response(301, [
-            'Location' => '/panel/posts'
+            'Location' => '/panel'
         ]);
     }
 }

@@ -56,7 +56,7 @@ class DeletePostAction
         }
 
         return new Response(301, [
-            'Location' => '/panel/posts'
+            'Location' => '/panel'
         ]);
     }
 }
