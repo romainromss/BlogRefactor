@@ -43,4 +43,9 @@ class UserServices
         $users = $this->userRepositories->allusers();
         return $users;
     }
+
+    public function getRank($rankAdmin){
+        $users = $this->userRepositories->getRank($rankAdmin);
+        return $users;
+    }
 }
