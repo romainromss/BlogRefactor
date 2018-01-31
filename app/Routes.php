@@ -55,15 +55,9 @@ return [
         'action' => App\Actions\Auth\VerifyMailAction::class,
         'middlewares' => []
     ],
-    'admin.index' => [
-        'methods' => ['GET', 'POST'],
-        'path' => '/panel',
-        'action' => App\Actions\Admin\AdminAction::class,
-        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
-    ],
     'admin.posts.show' => [
         'methods' => ['GET', 'POST'],
-        'path' => '/panel/posts',
+        'path' => '/panel',
         'action' => App\Actions\Admin\AllpostsAction::class,
         'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ],
@@ -89,6 +83,18 @@ return [
         'methods' => ['GET', 'POST'],
         'path' => '/panel/comment/validated/{post:[0-9]+}',
         'action' => App\Actions\Admin\CommentValidatedAction::class,
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class],
+    ],
+    'admin.users.rank' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/users',
+        'action' => App\Actions\Admin\UsersAction::class,
+        'middlewares' => [\App\Middlewares\RoleMiddleware::class]
+    ],
+    'admin.rank' => [
+        'methods' => ['GET', 'POST'],
+        'path' => '/panel/users/admin',
+        'action' => App\Actions\Admin\UsersAdminAction::class,
         'middlewares' => [\App\Middlewares\RoleMiddleware::class]
     ]
 ];
