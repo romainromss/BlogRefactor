@@ -44,7 +44,7 @@ class LoginAction
             return $response;
         }
 
-        $email = $this->getField('email');
+        $email =  $this->getField('email');
         $password = $this->getField('pass');
         $remember = $this->getField('remember');
 
