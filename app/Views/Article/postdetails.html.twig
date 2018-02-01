@@ -12,7 +12,11 @@
                     <div class="card-block">
                         <h2 class="card-title" style="text-align: center">{{ post.title }}</h2>
                         <div class="container col-lg-8"><img class="card-img" src="/upload/{{ post.img }}"/></div>
-                        <p id="date" class="card-text" style="text-align: center">Date de mise à jour {{ post.update_at|date('d/m/Y') }}</p>
+                        {% if post.update_at %}
+                            <p id="date" class="card-text text-center text-justify">Date de mise à jour {{ post.update_at|date('d/m/Y') }}</p>
+                        {% else %}
+                            <p id="date" class="card-text text-center text-justify">Date de création {{ post.creation_at|date('d/m/Y') }}</p>
+                        {% endif %}
                         <p class="card-text">{{ post.chapo |nl2br }}</p>
                         <p class="card-text">{{ post.content |nl2br }}</p>
                         <p class="card-text"> Article publié par <strong>{{ post.author }}</strong></p>
