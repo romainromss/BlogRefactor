@@ -93,11 +93,12 @@ class UpdatePostAction
             ]);
         }
 
-        $imgName = $post['img'];
 
-        if ($request->getUploadedFiles()){
+        $imgName = $post['img'] ;
+
+        if ($request->getMethod() === $_FILES ?? null){
             $imgLastName = $imgName;
-            $img = $this->getFiles('img')?? null;
+            $img = $this->getFiles('img') ?? null;
             $ext = strtolower(substr($img['name'], strrpos($img['name'], '.') + 1));
             $extAllow = ['jpg','jpeg', 'gif', 'png'];
             if (in_array($ext, $extAllow)){
