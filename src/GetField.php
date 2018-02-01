@@ -9,7 +9,7 @@ trait GetField
      */
     protected function getField($field)
     {
-        return filter_var($_POST[$field], FILTER_SANITIZE_STRING) ?? null;
+        return filter_var($_POST[$field] ?? null, FILTER_SANITIZE_STRING);
     }
 
     /**
