@@ -23,7 +23,7 @@ return [
     'db.pass' => di_env('db_pass', 'default'),
     'db.options' => [],
 
-    IDatabase::class => di_object(PdoDatabase::class)->constructor(
+    DatabaseInterface::class => di_object(PdoDatabase::class)->constructor(
         di_get('db.dsn'),
         di_get('db.user'),
         di_get('db.pass'),
