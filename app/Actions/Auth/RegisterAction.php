@@ -54,10 +54,16 @@ class RegisterAction
         $pass_confirm = $this->getField('pass_confirm');
 
         $user = $this->userServices->getUserByEmail($email);
+        
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $this->setFlash("danger", "Votre adresse mail n'est pas valide");
+            return new Response(301, [
+                'Location' => '/register'
+            ]);
+        }
 
-
-        if (filter_var($email, FILTER_VALIDATE_EMAIL) === $user['email']){
-            $this->setFlash("danger", "Vous êtes déjà enregistré avec cette adresse mail");
+        if ($email === $user['email']){
+            $this->setFlash("danger", "Vous êtes déjà enregistré avec cette adresse mai");
             return new Response(301, [
                 'Location' => '/register'
             ]);
