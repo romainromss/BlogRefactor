@@ -9,7 +9,7 @@ use function \DI\env as di_env;
 use function \DI\string as di_string;
 use function \DI\object as di_object;
 
-use Romss\Database\IDatabase;
+use Romss\Database\DatabaseInterface;
 use Romss\Database\Pdo\PdoDatabase;
 
 return [
