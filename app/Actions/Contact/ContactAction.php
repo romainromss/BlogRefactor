@@ -37,12 +37,13 @@ class ContactAction
         $email = $this->getField('email');
         $content = $this->getField('content');
 
-        if (empty(filter_var($email, FILTER_VALIDATE_EMAIL))){
-            $this->setFlash("danger", "Votre adresse est vide");
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $this->setFlash("danger", "Votre adresse n'est pas valide");
             return new Response(301, [
                 'Location' => '/contact'
             ]);
         }
+
 
         $nameLength = strlen($name);
         if (empty($name) || $nameLength < 4 ) {
