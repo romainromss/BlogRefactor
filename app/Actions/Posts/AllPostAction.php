@@ -11,7 +11,10 @@ class AllPostAction
 {
     private $postServices;
 
-
+    /**
+     * AllPostAction constructor.
+     * @param PostServices $postServices
+     */
     public function  __construct(PostServices $postServices)
     {
        $this->postServices = $postServices;

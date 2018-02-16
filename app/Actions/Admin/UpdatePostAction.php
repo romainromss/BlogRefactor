@@ -15,6 +15,7 @@ use Romss\Render\RenderInterface;
 class UpdatePostAction
 {
     use Flashable, GetField;
+
     /**
      * @var PostServices $postServices
      */
@@ -52,7 +53,6 @@ class UpdatePostAction
 
             return $response;
         }
-
 
         $title = $this->getField('title');
         $chapo = $this->getField('chapo');
@@ -92,7 +92,6 @@ class UpdatePostAction
                 'Location' => $path
             ]);
         }
-
 
         $imgName = $post['img'] ;
 

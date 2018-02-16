@@ -20,11 +20,21 @@ class VerifyMailAction
      */
     private $userServices;
 
+    /**
+     * VerifyMailAction constructor.
+     * @param UserServices $userServices
+     */
     public function __construct(UserServices $userServices)
     {
         $this->userServices = $userServices;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param Container $container
+     * @return Response
+     */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         $mailid = $request->getAttribute('id');
@@ -38,7 +48,6 @@ class VerifyMailAction
                 'Location' => '/'
             ]);
         }
-
 
         $timezone = new DateTimeZone('Europe/Paris');
         $limit = new DateTime('-10 minute', $timezone);

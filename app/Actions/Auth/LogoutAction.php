@@ -13,6 +13,12 @@ class LogoutAction
 {
     use Flashable;
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param Container $container
+     * @return Response
+     */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
        unset($_SESSION['auth']);

@@ -13,8 +13,13 @@ use Romss\Render\RenderInterface;
 class UsersAction
 {
     use GetField, Flashable;
+
     private $userServices;
 
+    /**
+     * UsersAction constructor.
+     * @param UserServices $userServices
+     */
     public function  __construct(UserServices $userServices)
     {
         $this->userServices = $userServices;

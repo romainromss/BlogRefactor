@@ -21,11 +21,14 @@ class LoginAction
      */
     private $userServices;
 
+    /**
+     * LoginAction constructor.
+     * @param UserServices $userServices
+     */
     public function __construct(UserServices $userServices)
     {
         $this->userServices = $userServices;
     }
-
 
     /**
      * @param ServerRequestInterface $request
@@ -35,7 +38,6 @@ class LoginAction
      * @throws \DI\DependencyException
      * @throws \DI\NotFoundException
      */
-
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
         if ($request->getMethod() === 'GET') {

@@ -26,12 +26,14 @@ class RegisterAction
      */
     private $userServices;
 
+    /**
+     * RegisterAction constructor.
+     * @param UserServices $userServices
+     */
     public function __construct(UserServices $userServices)
     {
         $this->userServices = $userServices;
     }
-
-
 
     /**
      * @param ServerRequestInterface $request

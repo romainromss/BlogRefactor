@@ -15,12 +15,17 @@ use Romss\Render\RenderInterface;
 class CreatePostAction
 {
     use Flashable, GetField;
+
     /**
      * @var PostServices $postServices
      */
     private $postServices;
 
 
+    /**
+     * CreatePostAction constructor.
+     * @param PostServices $postServices
+     */
     public function __construct(PostServices $postServices)
     {
         $this->postServices = $postServices;
@@ -49,7 +54,7 @@ class CreatePostAction
         $author = $this->getField('author');
 
         $path = '/panel/create/post';
-        
+
         $titleLength = strlen($title);
         if ( $titleLength < 10 ) {
             $this->setFlash("danger", "Votre titre doit contenir au moins 10 caractères ou ne doit pas être vide");
