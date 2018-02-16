@@ -43,16 +43,13 @@ class CreatePostAction
             return $response;
         }
 
-
         $title = $this->getField('title');
         $chapo = $this->getField('chapo');
         $content = $this->getField('content');
         $author = $this->getField('author');
 
-
         $path = '/panel/create/post';
-
-
+        
         $titleLength = strlen($title);
         if ( $titleLength < 10 ) {
             $this->setFlash("danger", "Votre titre doit contenir au moins 10 caractères ou ne doit pas être vide");
