@@ -13,4 +13,4 @@ For create the bdd.
 
 4) Enjoy! 
 
-###If you have any question contact me or you can make a pull request
+###If you have any question contact me.
