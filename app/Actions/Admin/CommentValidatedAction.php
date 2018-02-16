@@ -32,6 +32,7 @@ class CommentValidatedAction
         $this->commentServices = $commentServices;
         $this->postServices = $postServices;
     }
+    
     /**
      * @param ServerRequestInterface $request
      * @param Response $response
