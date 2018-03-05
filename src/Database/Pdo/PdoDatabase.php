@@ -11,7 +11,7 @@ use Romss\Database\StatementInterface;
  * Class PdoDatabase
  * Wrapper de
  *
- * @package Quenti\Database
+ * @package Romss\Database
  */
 class PdoDatabase extends PDO implements DatabaseInterface
 {
