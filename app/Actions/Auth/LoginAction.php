@@ -48,23 +48,23 @@ class LoginAction
         $password = $this->getField('pass');
         $remember = $this->getField('remember');
 
-
         $user = $this->userServices->getUserByEmail($email);
 
-        if (!empty($_SESSION['auth']) && $_SESSION['auth']['email'] === $email) {
+
+        if (!empty($_SESSION['auth']) && $_SESSION['auth']->email() === $email) {
             $this->setFlash('warning', 'Vous êtes déjà connecté !');
             return new Response(301, [
                 'Location' => '/'
             ]);
         }
 
-        if ($user && password_verify($email . '#-$' . $password, $user['password']) && $user['email_token'] === null) {
+
+        if ($user && password_verify($email . '#-$' . $password, $user->password()) && $user->email_token() === null) {
             if (!empty($remember)) {
                 $token = $this->generateToken();
                 setcookie('remember', $token, time() + 3600 * 24 * 7, '/', null, false, true);
             }
 
-            unset($user['password']);
             $_SESSION['auth'] = $user;
 
             $this->setFlash('success', 'Vous êtes maintenant connecté !');

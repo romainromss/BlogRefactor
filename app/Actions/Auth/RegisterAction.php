@@ -3,6 +3,7 @@
 namespace App\Actions\Auth;
 
 
+use App\Repositories\User;
 use App\Services\UserServices;
 use DI\Container;
 use GuzzleHttp\Psr7\Response;
@@ -53,6 +54,7 @@ class RegisterAction
         $pass = $this->getField('pass');
         $pass_confirm = $this->getField('pass_confirm');
 
+
         $user = $this->userServices->getUserByEmail($email);
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -62,12 +64,13 @@ class RegisterAction
             ]);
         }
 
-        if ($email === $user['email']){
-            $this->setFlash("danger", "Vous êtes déjà enregistré avec cette adresse mai");
+        if ($email === $user->email()){
+            $this->setFlash("danger", "Vous êtes déjà enregistré avec cette adresse mail");
             return new Response(301, [
                 'Location' => '/register'
             ]);
         }
+
 
         $passLength = strlen($pass);
         if ($passLength < 8){
@@ -85,23 +88,19 @@ class RegisterAction
         $tokenRegister = $this->generateToken();
         $passwordHash = password_hash($email.'#-$'.$pass, PASSWORD_BCRYPT, ['cost' => 12]);
 
-        $userRegister = $this->userServices->registerUser([
+        $user = new User([
             'password' => $passwordHash,
-           'email' => $email,
-            'emailToken' => $tokenRegister
+            'email' => $email,
+            'email_token' => $tokenRegister
         ]);
 
-        $user = [
-            'id' => $userRegister['id'],
-            'email' => $email,
-            'token' => $tokenRegister
-        ];
+        $userRegister = $this->userServices->registerUser($user);
 
         $renderHtml = $container->get(RenderInterface::class)->render('Mails/verify', [
-            'user' => $user
+            'user' => $userRegister
         ]);
         $renderText = $container->get(RenderInterface::class)->render('Mails/verify', [
-            'user' => $user
+            'user' => $userRegister
         ], 'text');
 
         // Connexion au smtp

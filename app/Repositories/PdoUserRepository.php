@@ -18,28 +18,27 @@ class PdoUserRepository implements UserRepositoriesInterface
 
 
     /**
-
-     * @param $user
-     * @return array
+     * @param User $user
+     * @return User
      */
-    public function registerUser($user): array
+    public function registerUser(User $user): User
     {
         $this->database->request('
             INSERT INTO users (password, email, email_token, register_at, connection_at, rank) 
             VALUES (:password, :email, :emailToken, NOW(), NULL, 1)',[
-            ':password' => $user ['password'],
-            ':email' => $user ['email'],
-            ':emailToken' => $user ['emailToken']
+            ':password' => $user->password(),
+            ':email' => $user->email(),
+            ':emailToken' => $user->email_token()
             ]);
-        $user['id'] = $this->database->lastId();
+        $user->setId($this->database->lastId());
         return $user;
     }
 
     /**
-     * @param $user
+     * @param User $user
      * @return StatementInterface
      */
-    public function updateUser($user): StatementInterface
+    public function updateUser(User $user): StatementInterface
     {
         return $this->database->request(
             'UPDATE users
@@ -48,50 +47,57 @@ class PdoUserRepository implements UserRepositoriesInterface
             connection_at = :connection_at,
             rank = :rank
         WHERE id = :userId', [
-            ':email' => $user['email'],
-            ':email_token' => $user['email_token'],
-            ':connection_at' => $user['connection_at'],
-            ':rank' => $user['rank'],
-            ':userId' => $user['id']
+            ':email' => $user->email(),
+            ':email_token' => $user->email_token(),
+            ':connection_at' => $user->connection_at(),
+            ':rank' => $user->rank(),
+            ':userId' => $user->id()
         ]);
     }
 
     /**
-     * @param $email
-     * @return array|string
+     * @param string $email
+     * @return User
      */
-    public function getUserByEmail($email)
+    public function getUserByEmail($email): User
     {
-        return $this->database->request(
+        return new User($this->database->request(
             'SELECT id, password, email, email_token, register_at, connection_at, rank FROM users
         WHERE email = :email',[
             ':email' => $email
-        ])->fetch();
+        ])->fetch());
     }
 
     /**
-     * @param $userId
-     * @return array|int
+     * @param  $userId
+     * @return mixed
      */
-    public function getUserById($userId)
+    public function getUserById(int $userId)
     {
-        return $this->database->request(
+        return new User($this->database->request(
             'SELECT id, password, email, email_token, register_at, connection_at, rank FROM users
         WHERE id = :userId
         LIMIT 0, 1' ,[
             ':userId' => $userId
-        ])->fetch();
+        ])->fetch());
     }
 
-    public function getRank(int $rankAdmin)
+    /**
+     * @param User $rankAdmin
+     * @return mixed
+     */
+    public function getRank(User $rankAdmin): mixed
     {
         return $this->database->request('
             SELECT * FROM blog.users  WHERE rank = :rankAdmin', [
 
-            ':rankAdmin' => intval($rankAdmin)
+            ':rankAdmin' => intval($rankAdmin->rank())
         ])->fetchAll();
     }
 
+    /**
+     * @return array|mixed|null
+     */
     public function allusers()
     {
        return $this->database->request(
