@@ -8,29 +8,33 @@ interface UserRepositoriesInterface
 {
     /**
      * @param $user
-     * @return array
+     * @return User
      */
-    public function registerUser($user): array;
+    public function registerUser(User $user): User;
 
     /**
-     * @param $email
-     * @return string
+     * @param string $email
+     * @return User
      */
-    public function getUserByEmail($email);
+    public function getUserByEmail($email): User;
 
     /**
-     * @param $userId
-     * @return array|bool
+     * @param User $userId
+     * @return mixed
      */
-    public function getUserById($userId);
-
-    public function getRank(int $rankAdmin);
+    public function getUserById(int $userId);
 
     /**
-     * @param $user
+     * @param User $rankAdmin
+     * @return mixed
+     */
+    public function getRank(User $rankAdmin);
+
+    /**
+     * @param User $user
      * @return StatementInterface
      */
-    public function updateUser($user): StatementInterface;
+    public function updateUser(User $user): StatementInterface;
 
     /**
      * @return mixed

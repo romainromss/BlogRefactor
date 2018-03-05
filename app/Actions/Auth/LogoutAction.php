@@ -16,7 +16,7 @@ class LogoutAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Container $container)
     {
        unset($_SESSION['auth']);
-       setcookie('remeber', '', -1, '/', null, false, true);
+       setcookie('remember', '', -1, '/', null, false, true);
        $this->setFlash('success', 'Vous êtes bien déconnecté');
        return new Response(301, [
            'Location' => '/'
