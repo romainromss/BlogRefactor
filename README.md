@@ -1,8 +1,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e52bf244701e46c08e5f51b8e88e69dc)](https://www.codacy.com/app/romainromss/BlogRefactor?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=romainromss/BlogRefactor&amp;utm_campaign=Badge_Grade)
 
-#Blog project 
+# Blog project 
 
-###this project is a blog with ADR pattern.
+### this project is a blog with ADR pattern.
 
 For install and try it :
 
@@ -15,4 +15,4 @@ For create the bdd.
 
 4) Enjoy! 
 
-###If you have any question contact me.
+### If you have any question contact me.
