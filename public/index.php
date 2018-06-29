@@ -2,7 +2,10 @@
 
 use Romss\Application;
 
+require __DIR__.'/../vendor/autoload.php';
+
 session_start();
+
 $sessionId = session_id();
 $cookieId = $_COOKIE['PHPSESSID'] ?? 0;
 
@@ -15,9 +18,6 @@ if (empty($_SESSION['counter'])) {
     $_SESSION['counter'] = 0;
 }
 $_SESSION['counter'] += 1;
-
-
-require __DIR__.'/../vendor/autoload.php';
 
 try {
     $app = new Application();

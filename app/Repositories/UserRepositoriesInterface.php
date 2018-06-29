@@ -17,11 +17,12 @@ interface UserRepositoriesInterface
      * @return User
      */
     public function getUserByEmail($email): User;
-
-    /**
-     * @param User $userId
-     * @return mixed
-     */
+  
+  /**
+   * @param int $userId
+   *
+   * @return mixed
+   */
     public function getUserById(int $userId);
 
     /**

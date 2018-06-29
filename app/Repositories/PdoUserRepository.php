@@ -86,7 +86,7 @@ class PdoUserRepository implements UserRepositoriesInterface
      * @param User $rankAdmin
      * @return mixed
      */
-    public function getRank(User $rankAdmin): mixed
+    public function getRank(User $rankAdmin)
     {
         return $this->database->request('
             SELECT * FROM blog.users  WHERE rank = :rankAdmin', [
