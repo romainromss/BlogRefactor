@@ -26,10 +26,10 @@ interface UserRepositoriesInterface
     public function getUserById(int $userId);
 
     /**
-     * @param User $rankAdmin
+     * @param  $rankAdmin
      * @return mixed
      */
-    public function getRank(User $rankAdmin);
+    public function getRank($rankAdmin);
 
     /**
      * @param User $user

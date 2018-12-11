@@ -50,10 +50,11 @@ class PdoUserRepository implements UserRepositoriesInterface
             ':email' => $user->email(),
             ':email_token' => $user->email_token(),
             ':connection_at' => $user->connection_at(),
-            ':rank' => $user->rank(),
+            ':rank' => $user->getRank(),
             ':userId' => $user->id()
         ]);
     }
+    
 
     /**
      * @param string $email
@@ -81,17 +82,18 @@ class PdoUserRepository implements UserRepositoriesInterface
             ':userId' => $userId
         ])->fetch());
     }
-
-    /**
-     * @param User $rankAdmin
-     * @return mixed
-     */
-    public function getRank(User $rankAdmin)
+  
+  /**
+   * @param  $rankAdmin
+   *
+   * @return array|null
+   */
+    public function getRank($rankAdmin)
     {
         return $this->database->request('
-            SELECT * FROM blog.users  WHERE rank = :rankAdmin', [
-
-            ':rankAdmin' => intval($rankAdmin->rank())
+            SELECT * FROM users
+            WHERE rank = :rankAdmin', [
+            ':rankAdmin' => $rankAdmin
         ])->fetchAll();
     }
 

@@ -42,8 +42,8 @@ class UsersAdminAction
         $users = $this->userServices->getUserById($usersId);
 
         if ($users) {
-            $users['rank'] = 1;
-            $this->userServices->updateUser($users);
+          $users->setRank(1);
+          $this->userServices->updateUser($users);
 
             $this->setFlash('success', 'L\'utilisateur n\'est plus admin');
         } else {

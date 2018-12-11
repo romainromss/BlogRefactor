@@ -84,7 +84,7 @@ class User
         return $this->id;
     }
 
-    public function rank()
+    public function getRank()
     {
         return $this->rank;
     }

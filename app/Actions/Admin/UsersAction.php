@@ -42,8 +42,9 @@ class UsersAction
         $users = $this->userServices->getUserById($usersId);
 
         if ($users) {
-            $users['rank'] = 2;
-            $this->userServices->updateUser($users);
+          $users->setRank(2);
+  
+          $this->userServices->updateUser($users);
 
             $this->setFlash('success', 'L\'utilisateur a bien le rôle admin');
         } else {

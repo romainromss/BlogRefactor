@@ -33,7 +33,7 @@ class UserServices
         return $user;
     }
 
-    public function updateUser($user): StatementInterface
+    public function updateUser($user)
     {
         $user = $this->userRepositories->updateUser($user);
         return $user;
