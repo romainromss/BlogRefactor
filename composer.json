@@ -19,7 +19,7 @@
     },
     "require": {
         "guzzlehttp/psr7": "^1.4",
-        "php-di/php-di": "^5.4",
+        "php-di/php-di": "^6.2",
         "twig/twig": "^2.4",
         "zendframework/zend-expressive-fastroute": "^2.1",
         "quimcalpe/psr7-response-sender": "^0.1.3",
