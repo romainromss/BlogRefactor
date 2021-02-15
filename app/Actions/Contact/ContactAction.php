@@ -16,6 +16,7 @@ use Swift_SmtpTransport;
 class ContactAction
 {
     use Flashable, GetField;
+
     /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
@@ -43,7 +44,6 @@ class ContactAction
                 'Location' => '/contact'
             ]);
         }
-
 
         $nameLength = strlen($name);
         if (empty($name) || $nameLength < 4 ) {

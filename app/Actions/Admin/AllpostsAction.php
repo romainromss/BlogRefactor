@@ -35,4 +35,3 @@ class AllpostsAction
         return $response;
     }
 }
-

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Actions\Admin;
 
 use App\Services\CommentServices;
@@ -27,11 +28,13 @@ class CommentValidatedAction
      * @param CommentServices $commentServices
      * @param PostServices $postServices
      */
+
     public  function __construct(CommentServices $commentServices, PostServices $postServices)
     {
         $this->commentServices = $commentServices;
         $this->postServices = $postServices;
     }
+
     /**
      * @param ServerRequestInterface $request
      * @param Response $response

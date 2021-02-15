@@ -14,6 +14,7 @@ use Romss\Render\RenderInterface;
 class DeletePostAction
 {
     use Flashable;
+    
     /**
      * @var PostServices $postServices
      */

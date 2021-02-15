@@ -15,19 +15,24 @@ use Romss\GetField;
 class CommentAction
 {
     use Flashable, GetField;
+
     /**
      * @var CommentServices
      */
     private $postServices;
     private $commentServices;
 
+    /**
+     * CommentAction constructor.
+     * @param PostServices $postServices
+     * @param CommentServices $commentServices
+     */
     public function __construct(PostServices $postServices, CommentServices $commentServices)
     {
 
         $this->postServices = $postServices;
         $this->commentServices = $commentServices;
     }
-
 
     /**
      * @param ServerRequestInterface $request
@@ -44,7 +49,6 @@ class CommentAction
         $comment = $this->getField('comment');
 
             $path =  '/posts/'.$posts['id'];
-
 
         $authorLength = strlen($author);
         if ($authorLength < 4 ) {

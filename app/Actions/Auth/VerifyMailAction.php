@@ -20,6 +20,10 @@ class VerifyMailAction
      */
     private $userServices;
 
+    /**
+     * VerifyMailAction constructor.
+     * @param UserServices $userServices
+     */
     public function __construct(UserServices $userServices)
     {
         $this->userServices = $userServices;
@@ -44,7 +48,6 @@ class VerifyMailAction
                 'Location' => '/'
             ]);
         }
-
 
         $timezone = new DateTimeZone('Europe/Paris');
         $limit = new DateTime('-10 minute', $timezone);

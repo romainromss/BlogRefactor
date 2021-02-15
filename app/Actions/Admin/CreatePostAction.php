@@ -15,12 +15,17 @@ use Romss\Render\RenderInterface;
 class CreatePostAction
 {
     use Flashable, GetField;
+
     /**
      * @var PostServices $postServices
      */
     private $postServices;
 
 
+    /**
+     * CreatePostAction constructor.
+     * @param PostServices $postServices
+     */
     public function __construct(PostServices $postServices)
     {
         $this->postServices = $postServices;
@@ -43,15 +48,12 @@ class CreatePostAction
             return $response;
         }
 
-
         $title = $this->getField('title');
         $chapo = $this->getField('chapo');
         $content = $this->getField('content');
         $author = $this->getField('author');
 
-
         $path = '/panel/create/post';
-
 
         $titleLength = strlen($title);
         if ( $titleLength < 10 ) {

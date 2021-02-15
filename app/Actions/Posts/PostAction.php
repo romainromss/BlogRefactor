@@ -17,11 +17,17 @@ class PostAction
      * @var PostServices $postServices
      */
     private $postServices;
+
     /**
      * @var CommentServices
      */
     private $commentServices;
 
+    /**
+     * PostAction constructor.
+     * @param PostServices $postServices
+     * @param CommentServices $commentServices
+     */
     public function __construct(PostServices $postServices, CommentServices $commentServices)
     {
         $this->postServices = $postServices;
